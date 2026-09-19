@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+---
+
+<BaseLayout title="Writing — Young Systems" description="Field notes on Microsoft cloud, infrastructure, identity, and automation.">
+  <header class="page-header"><p class="eyebrow">Writing</p><h1>Technical notes without the ceremony.</h1><p>Implementation details, troubleshooting records, and lessons from systems that had to work outside of a diagram.</p></header>
+  <section class="section">
+    {posts.length ? <div class="writing-list">
+      {posts.map((post) => <a class="writing-item" href={`/blog/${post.id}/`}>
+        <time datetime={post.data.publishedAt.toISOString()}>{post.data.publishedAt.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric', timeZone: 'UTC' })}</time>
+        <div><h2>{post.data.title}</h2><p>{post.data.description}</p><ul class="tag-list">{post.data.tags.map((tag) => <li>{tag}</li>)}</ul></div>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>)}
+    </div> : <p class="empty-state">The first field note is being prepared.</p>}
+  </section>
+</BaseLayout>

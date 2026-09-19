@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+  .slice(0, 2);
+---
+
+<BaseLayout>
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Samuel Young / Systems Engineer</p>
+      <h1>Infrastructure that works. <span>Automation that lasts.</span></h1>
+      <p class="hero-copy">I document the systems I build, the problems I untangle, and the automation that makes both easier to operate.</p>
+      <div class="actions">
+        <a class="button primary" href="/projects">Explore projects <span aria-hidden="true">→</span></a>
+        <a class="button" href="/blog">Read field notes</a>
+      </div>
+    </div>
+    <aside class="hero-aside" aria-label="Current focus">
+      <p><strong>Focus</strong></p>
+      <p>Microsoft 365 / Entra ID</p>
+      <p>Infrastructure / Virtualization</p>
+      <p>PowerShell / Automation</p>
+      <p>Identity / Security</p>
+    </aside>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <div><p class="eyebrow">Selected work</p><h2>Built from real operational problems.</h2></div>
+      <p>Projects span Microsoft cloud administration, migration engineering, network design, self-hosted infrastructure, and the tooling that connects them.</p>
+    </div>
+    <div class="grid">
+      <ProjectCard title="Microsoft 365 Migration Toolkit" description="Repeatable discovery, identity validation, and post-migration checks designed to reduce manual work across tenant projects." tags={['PowerShell', 'Microsoft Graph', 'Exchange Online']} status="Automation" />
+      <ProjectCard title="Segmented Homelab Platform" description="A multi-node Proxmox environment with routed VLANs, remote access, containerized services, and infrastructure built to be documented and rebuilt." tags={['Proxmox', 'OPNsense', 'Ansible']} status="Infrastructure" />
+      <ProjectCard title="Cloud Edge Services" description="A small public-cloud edge stack for private connectivity, identity-aware access, and reverse-proxied internal services." tags={['Traefik', 'Authentik', 'NetBird']} status="Platform" />
+    </div>
+    <div class="actions"><a class="button" href="/projects">View all projects →</a></div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <div><p class="eyebrow">Areas of practice</p><h2>Broad infrastructure experience, applied deliberately.</h2></div>
+    </div>
+    <div class="expertise-list">
+      <div class="expertise-item"><span class="expertise-number">01</span><div><h3>Microsoft cloud</h3><p>Microsoft 365, Exchange Online, SharePoint, OneDrive, Entra ID, and tenant migrations.</p></div></div>
+      <div class="expertise-item"><span class="expertise-number">02</span><div><h3>Automation</h3><p>PowerShell, Microsoft Graph, repeatable workflows, reporting, and operational guardrails.</p></div></div>
+      <div class="expertise-item"><span class="expertise-number">03</span><div><h3>Infrastructure</h3><p>Windows Server, virtualization, containers, networking, storage, and hybrid environments.</p></div></div>
+      <div class="expertise-item"><span class="expertise-number">04</span><div><h3>Identity & security</h3><p>Access design, identity governance, segmentation, compliance, and practical hardening.</p></div></div>
+    </div>
+  </section>
+
+  {posts.length > 0 && <section class="section">
+    <div class="section-heading">
+      <div><p class="eyebrow">Latest writing</p><h2>Notes from the field.</h2></div>
+      <p>Technical explanations, implementation notes, and lessons learned while building and operating systems.</p>
+    </div>
+    <div class="writing-list">
+      {posts.map((post) => <a class="writing-item" href={`/blog/${post.id}/`}>
+        <time datetime={post.data.publishedAt.toISOString()}>{post.data.publishedAt.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric', timeZone: 'UTC' })}</time>
+        <div><h2>{post.data.title}</h2><p>{post.data.description}</p></div><span class="arrow" aria-hidden="true">↗</span>
+      </a>)}
+    </div>
+  </section>}
+</BaseLayout>

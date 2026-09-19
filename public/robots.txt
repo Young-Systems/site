@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://young-systems.com/sitemap-index.xml
