@@ -1,0 +1,22 @@
+---
+import type { Certification } from '../data/certifications';
+const { certification } = Astro.props as { certification: Certification };
+---
+
+<article class="credential-card">
+  <img src={certification.image} alt={`${certification.name} badge`} width="96" height="96" loading="lazy" />
+  <div class="credential-details">
+    <h2>{certification.name}</h2>
+    <p class="credential-issuer">{certification.issuer}</p>
+    <p class="credential-date">
+      Issued {certification.issued}
+      {certification.expires && <> · Expires {certification.expires}</>}
+    </p>
+    {certification.credentialId && <p class="credential-id">Credential ID {certification.credentialId}</p>}
+    {certification.credentialUrl && (
+      <a class="credential-link" href={certification.credentialUrl} target="_blank" rel="noreferrer">
+        Show credential <span aria-hidden="true">↗</span>
+      </a>
+    )}
+  </div>
+</article>
