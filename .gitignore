@@ -3,3 +3,15 @@ dist/
 .astro/
 .DS_Store
 *.log
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+*.jks
+credentials.json
+secrets.json
