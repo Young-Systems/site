@@ -1,12 +1,7 @@
 ---
-interface Props {
-  title: string;
-  description: string;
-  tags: string[];
-  status?: string;
-  href?: string;
-}
-const { title, description, tags, status = 'Project', href } = Astro.props;
+import type { Project } from '../data/projects';
+const { project } = Astro.props as { project: Project };
+const { title, description, tags, status, href } = project;
 const Element = href ? 'a' : 'article';
 ---
 
