@@ -47,6 +47,23 @@ Drafts are excluded from the homepage, writing index, and production routes.
 
 The certification page is generated automatically from this list. Keep the newest credential first.
 
+## Adding a project
+
+Open `src/data/projects.ts`, copy an existing entry, and update its values:
+
+```ts
+{
+  title: 'Project name',
+  description: 'A short description of the project.',
+  tags: ['PowerShell', 'Microsoft Graph'],
+  status: 'In development',
+  href: 'https://github.com/Young-Systems/project', // Optional
+  featured: true, // Optional: also show it on the homepage
+},
+```
+
+The Projects page follows the order of this list. Remove an entry to remove its card from the site.
+
 ## Brand assets
 
 The current header uses a text mark until final brand files are supplied. Reserved asset locations:
