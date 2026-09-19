@@ -129,6 +129,10 @@ a.project-card:hover { background: var(--surface-raised); }
 .post-header h1 { font-size: clamp(2.8rem, 6vw, 5.4rem); }
 .post-dek { max-width: 720px; color: var(--muted); font-size: 1.16rem; }
 .post-details { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin: 2rem 0 1.2rem; color: var(--quiet); font: .74rem var(--mono); }
+.share-area { display: flex; align-items: center; gap: .8rem; margin-top: 1.4rem; }
+.share-button { padding: .5rem .75rem; border: 1px solid var(--line-strong); border-radius: 6px; background: transparent; color: var(--text); font: 600 .8rem var(--sans); cursor: pointer; }
+.share-button:hover, .share-button:focus-visible { border-color: var(--accent-light); color: var(--accent-light); }
+.share-status { color: var(--muted); font-size: .78rem; }
 .prose { max-width: 720px; margin: 3.5rem auto 0; color: #d1d2d5; }
 .prose h2 { margin: 3rem 0 1rem; font-size: 1.8rem; color: var(--text); }
 .prose h3 { margin-top: 2.2rem; color: var(--text); }
