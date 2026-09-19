@@ -13,7 +13,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
     <div>
       <p class="eyebrow">Samuel Young / Systems Engineer</p>
       <h1>Infrastructure that works. <span>Automation that lasts.</span></h1>
-      <p class="hero-copy">I document the systems I build, the problems I untangle, and the automation that makes both easier to operate.</p>
+      <p class="hero-copy">Projects and notes on Microsoft cloud, infrastructure, identity, and automation.</p>
       <div class="actions">
         <a class="button primary" href="/projects">Explore projects <span aria-hidden="true">→</span></a>
         <a class="button" href="/blog">Read field notes</a>
@@ -31,7 +31,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   <section class="section">
     <div class="section-heading">
       <div><p class="eyebrow">Selected work</p><h2>Built from real operational problems.</h2></div>
-      <p>Projects span Microsoft cloud administration, migration engineering, network design, self-hosted infrastructure, and the tooling that connects them.</p>
+      <p>Practical work across Microsoft cloud, networking, self-hosted infrastructure, and automation.</p>
     </div>
     <div class="grid">
       <ProjectCard title="Microsoft 365 Migration Toolkit" description="Repeatable discovery, identity validation, and post-migration checks designed to reduce manual work across tenant projects." tags={['PowerShell', 'Microsoft Graph', 'Exchange Online']} status="Automation" />
@@ -56,7 +56,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   {posts.length > 0 && <section class="section">
     <div class="section-heading">
       <div><p class="eyebrow">Latest writing</p><h2>Notes from the field.</h2></div>
-      <p>Technical explanations, implementation notes, and lessons learned while building and operating systems.</p>
+      <p>Implementation notes and lessons learned from real systems.</p>
     </div>
     <div class="writing-list">
       {posts.map((post) => <a class="writing-item" href={`/blog/${post.id}/`}>
