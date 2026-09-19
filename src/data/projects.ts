@@ -32,12 +32,6 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    title: 'Infrastructure Update Automation',
-    description: 'Ansible playbooks for repeatable maintenance across Linux virtual machines, containers, and Proxmox hosts.',
-    tags: ['Ansible', 'Debian', 'Proxmox'],
-    status: 'In development',
-  },
-  {
     title: 'Media Automation Platform',
     description: 'Containerized request, acquisition, organization, and playback pipeline with network isolation and shared storage.',
     tags: ['Docker Compose', 'Jellyfin', 'Linux'],
