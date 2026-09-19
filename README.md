@@ -27,6 +27,26 @@ draft: false
 
 Drafts are excluded from the homepage, writing index, and production routes.
 
+## Adding a certification
+
+1. Save the badge image in `public/images/certifications/`.
+2. Open `src/data/certifications.ts`.
+3. Copy an existing certification entry and update its values.
+
+```ts
+{
+  name: 'Certification name',
+  issuer: 'Issuer',
+  issued: 'September 2026',
+  expires: 'September 2027', // Optional
+  credentialId: 'ABC123',   // Optional
+  credentialUrl: 'https://example.com/verify',
+  image: '/images/certifications/badge.png',
+},
+```
+
+The certification page is generated automatically from this list. Keep the newest credential first.
+
 ## Brand assets
 
 The current header uses a text mark until final brand files are supplied. Reserved asset locations:
