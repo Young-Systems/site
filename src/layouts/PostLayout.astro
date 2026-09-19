@@ -17,7 +17,36 @@ const format = (date: Date) => date.toLocaleDateString('en-US', { month: 'long',
         <span>{Math.max(1, Math.round(Astro.props.words / 220))} min read</span>
       </div>
       <ul class="tag-list">{tags.map((tag: string) => <li>{tag}</li>)}</ul>
+      <div class="share-area">
+        <button class="share-button" type="button" data-share-title={title}>
+          Share article <span aria-hidden="true">↗</span>
+        </button>
+        <span class="share-status" role="status" aria-live="polite"></span>
+      </div>
     </header>
     <div class="prose"><slot /></div>
   </article>
 </BaseLayout>
+
+<script>
+  const shareButton = document.querySelector<HTMLButtonElement>('.share-button');
+  const shareStatus = document.querySelector<HTMLElement>('.share-status');
+
+  shareButton?.addEventListener('click', async () => {
+    const title = shareButton.dataset.shareTitle ?? document.title;
+    const shareData = { title, text: title, url: window.location.href };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+        if (shareStatus) shareStatus.textContent = 'Shared';
+      } else {
+        await navigator.clipboard.writeText(window.location.href);
+        if (shareStatus) shareStatus.textContent = 'Link copied';
+      }
+    } catch (error) {
+      if (error instanceof DOMException && error.name === 'AbortError') return;
+      if (shareStatus) shareStatus.textContent = 'Unable to share';
+    }
+  });
+</script>
