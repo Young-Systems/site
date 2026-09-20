@@ -19,6 +19,7 @@ Add a Markdown file to `src/content/blog/`. Required frontmatter:
 ---
 title: "Article title"
 description: "A concise summary."
+category: Microsoft
 publishedAt: 2026-09-19
 tags: [PowerShell, Automation]
 draft: false
@@ -26,6 +27,17 @@ draft: false
 ```
 
 Drafts are excluded from the homepage, writing index, and production routes.
+
+`category` controls the filter on the Writing page. Existing category names are generated automatically from published posts.
+
+To schedule a post, add an ISO 8601 `publishAt` value in UTC:
+
+```yaml
+publishedAt: 2026-10-05
+publishAt: 2026-10-05T14:00:00Z
+```
+
+The article remains excluded from the site until `publishAt`. GitHub checks hourly at 17 minutes past the hour, so scheduled publication can occur up to roughly one hour after the specified time. Keep `draft: false`; a draft is never published regardless of its scheduled time.
 
 ## Adding a certification
 
