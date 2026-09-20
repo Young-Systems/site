@@ -32,6 +32,17 @@ const format = (date: Date) => date.toLocaleDateString('en-US', { month: 'long',
   const shareButton = document.querySelector<HTMLButtonElement>('.share-button');
   const shareStatus = document.querySelector<HTMLElement>('.share-status');
 
+  document.querySelectorAll<HTMLElement>('.prose :is(h2, h3, h4)[id]').forEach((heading) => {
+    const label = heading.textContent?.trim() ?? 'this section';
+    const link = document.createElement('a');
+    link.className = 'heading-link';
+    link.href = `#${heading.id}`;
+    link.setAttribute('aria-label', `Link to ${label}`);
+    link.title = 'Link this section';
+    link.textContent = '#';
+    heading.append(link);
+  });
+
   shareButton?.addEventListener('click', async () => {
     const title = shareButton.dataset.shareTitle ?? document.title;
     const shareData = { title, text: title, url: window.location.href };
