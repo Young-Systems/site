@@ -1,9 +1,10 @@
 ---
 import { getCollection, render } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
+import { isPostPublished } from '../../utils/posts';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  const posts = await getCollection('blog', ({ data }) => isPostPublished(data));
   return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
 }
 
