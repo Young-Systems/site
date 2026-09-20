@@ -141,6 +141,13 @@ a.project-card:hover { background: var(--surface-raised); }
 .post-header h1 { font-size: clamp(2.8rem, 6vw, 5.4rem); }
 .post-dek { max-width: 720px; color: var(--muted); font-size: 1.16rem; }
 .post-details { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin: 2rem 0 1.2rem; color: var(--quiet); font: .74rem var(--mono); }
+.post-references { max-width: 720px; margin-top: 1.6rem; padding: 1rem 1.2rem; border-radius: 8px; background: var(--surface); }
+.post-references h2 { margin: 0 0 .75rem; color: var(--quiet); font: .68rem var(--mono); text-transform: uppercase; letter-spacing: .08em; }
+.post-references ul { display: grid; gap: .55rem; margin: 0; padding: 0; list-style: none; }
+.post-references li { display: flex; flex-wrap: wrap; gap: .45rem .75rem; align-items: baseline; }
+.post-references li > span { color: var(--quiet); font: .68rem var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+.post-references a { color: var(--text); font-size: .88rem; text-decoration-color: var(--line-strong); text-underline-offset: .2em; }
+.post-references a:hover { color: var(--accent-light); }
 .share-area { display: flex; align-items: center; gap: .8rem; margin-top: 1.4rem; }
 .share-button { padding: .5rem .75rem; border: 1px solid var(--line-strong); border-radius: 6px; background: transparent; color: var(--text); font: 600 .8rem var(--sans); cursor: pointer; }
 .share-button:hover, .share-button:focus-visible { border-color: var(--accent-light); color: var(--accent-light); }
