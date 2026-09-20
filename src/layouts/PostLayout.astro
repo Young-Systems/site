@@ -1,6 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-const { title, description, publishedAt, updatedAt, tags = [] } = Astro.props;
+const { title, description, publishedAt, updatedAt, tags = [], references = [] } = Astro.props;
 const format = (date: Date) => date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 ---
 
@@ -17,6 +17,21 @@ const format = (date: Date) => date.toLocaleDateString('en-US', { month: 'long',
         <span>{Math.max(1, Math.round(Astro.props.words / 220))} min read</span>
       </div>
       <ul class="tag-list">{tags.map((tag: string) => <li>{tag}</li>)}</ul>
+      {references.length > 0 && (
+        <aside class="post-references" aria-labelledby="post-references-title">
+          <h2 id="post-references-title">References</h2>
+          <ul>
+            {references.map((reference: { label: string; url: string; type?: string }) => (
+              <li>
+                {reference.type && <span>{reference.type}</span>}
+                <a href={reference.url} target="_blank" rel="noreferrer">
+                  {reference.label} <span aria-hidden="true">↗</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )}
       <div class="share-area">
         <button class="share-button" type="button" data-share-title={title}>
           Share article <span aria-hidden="true">↗</span>
