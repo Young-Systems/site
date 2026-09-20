@@ -46,6 +46,11 @@ const format = (date: Date) => date.toLocaleDateString('en-US', { month: 'long',
 <script>
   const shareButton = document.querySelector<HTMLButtonElement>('.share-button');
   const shareStatus = document.querySelector<HTMLElement>('.share-status');
+  const sectionLinkStatus = document.createElement('span');
+  sectionLinkStatus.className = 'sr-only';
+  sectionLinkStatus.setAttribute('role', 'status');
+  sectionLinkStatus.setAttribute('aria-live', 'polite');
+  document.querySelector('.post')?.append(sectionLinkStatus);
 
   document.querySelectorAll<HTMLElement>('.prose :is(h2, h3, h4)[id]').forEach((heading) => {
     const label = heading.textContent?.trim() ?? 'this section';
@@ -55,6 +60,20 @@ const format = (date: Date) => date.toLocaleDateString('en-US', { month: 'long',
     link.setAttribute('aria-label', `Link to ${label}`);
     link.title = 'Link this section';
     link.textContent = '#';
+    link.addEventListener('click', () => {
+      if (!navigator.clipboard) return;
+
+      void navigator.clipboard.writeText(link.href).then(() => {
+        sectionLinkStatus.textContent = `Link to ${label} copied`;
+        link.title = 'Section link copied';
+        window.setTimeout(() => {
+          link.title = 'Link this section';
+          sectionLinkStatus.textContent = '';
+        }, 2000);
+      }).catch(() => {
+        // The link still navigates to the section if clipboard access is unavailable.
+      });
+    });
     heading.append(link);
   });
 
