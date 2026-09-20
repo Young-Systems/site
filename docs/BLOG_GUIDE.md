@@ -114,7 +114,7 @@ Image saved under `public/images/blog/`:
 ![Descriptive alternative text](/images/blog/example.png)
 ```
 
-Astro automatically creates section URLs from headings. The site also adds a clickable `#` beside each section heading.
+Astro automatically creates section URLs from headings. The site also adds a clickable `#` beside each section heading. Clicking it jumps to that section and copies the full section URL to the clipboard.
 
 ## Publish changes
 
