@@ -1,18 +1,72 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+import { isPostPublished } from '../../utils/posts';
+
+const posts = (await getCollection('blog', ({ data }) => isPostPublished(data))).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const categories = [...new Set(posts.map((post) => post.data.category))].sort((a, b) => a.localeCompare(b));
+const categoryCounts = new Map(categories.map((category) => [category, posts.filter((post) => post.data.category === category).length]));
 ---
 
 <BaseLayout title="Writing — Young Systems" description="Field notes on Microsoft cloud, infrastructure, identity, and automation.">
   <header class="page-header"><p class="eyebrow">Writing</p><h1>Technical notes without the ceremony.</h1><p>Implementation details, troubleshooting records, and lessons from systems that had to work outside of a diagram.</p></header>
-  <section class="section">
-    {posts.length ? <div class="writing-list">
-      {posts.map((post) => <a class="writing-item" href={`/blog/${post.id}/`}>
-        <time datetime={post.data.publishedAt.toISOString()}>{post.data.publishedAt.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric', timeZone: 'UTC' })}</time>
-        <div><h2>{post.data.title}</h2><p>{post.data.description}</p><ul class="tag-list">{post.data.tags.map((tag) => <li>{tag}</li>)}</ul></div>
-        <span class="arrow" aria-hidden="true">↗</span>
-      </a>)}
-    </div> : <p class="empty-state">The first field note is being prepared.</p>}
+  <section class="section writing-browser">
+    {posts.length ? <>
+      <aside class="category-filter" aria-label="Filter writing by category">
+        <h2>Topics</h2>
+        <div class="category-buttons">
+          <button type="button" class="category-button is-active" data-category="all" aria-pressed="true"><span>All</span><span>{posts.length}</span></button>
+          {categories.map((category) => <button type="button" class="category-button" data-category={category} aria-pressed="false"><span>{category}</span><span>{categoryCounts.get(category)}</span></button>)}
+        </div>
+        <label class="category-select-label" for="category-select">Topic</label>
+        <select id="category-select" class="category-select">
+          <option value="all">All ({posts.length})</option>
+          {categories.map((category) => <option value={category}>{category} ({categoryCounts.get(category)})</option>)}
+        </select>
+      </aside>
+      <div>
+        <p class="filter-summary" role="status" aria-live="polite">Showing all {posts.length} articles</p>
+        <div class="writing-list">
+          {posts.map((post) => <a class="writing-item" data-post-category={post.data.category} href={`/blog/${post.id}/`}>
+            <time datetime={post.data.publishedAt.toISOString()}>{post.data.publishedAt.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric', timeZone: 'UTC' })}</time>
+            <div><span class="writing-category">{post.data.category}</span><h2>{post.data.title}</h2><p>{post.data.description}</p><ul class="tag-list">{post.data.tags.map((tag) => <li>{tag}</li>)}</ul></div>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </a>)}
+        </div>
+      </div>
+    </> : <p class="empty-state">The first field note is being prepared.</p>}
   </section>
 </BaseLayout>
+
+<script>
+  const buttons = [...document.querySelectorAll<HTMLButtonElement>('.category-button')];
+  const select = document.querySelector<HTMLSelectElement>('#category-select');
+  const articles = [...document.querySelectorAll<HTMLElement>('[data-post-category]')];
+  const summary = document.querySelector<HTMLElement>('.filter-summary');
+  const validCategories = new Set(['all', ...buttons.map((button) => button.dataset.category ?? '')]);
+
+  function applyCategory(category: string) {
+    const selected = validCategories.has(category) ? category : 'all';
+    let visible = 0;
+    articles.forEach((article) => {
+      const show = selected === 'all' || article.dataset.postCategory === selected;
+      article.hidden = !show;
+      if (show) visible += 1;
+    });
+    buttons.forEach((button) => {
+      const active = button.dataset.category === selected;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+    if (select) select.value = selected;
+    if (summary) summary.textContent = selected === 'all' ? `Showing all ${visible} articles` : `Showing ${visible} ${selected} ${visible === 1 ? 'article' : 'articles'}`;
+    const url = new URL(window.location.href);
+    if (selected === 'all') url.searchParams.delete('category');
+    else url.searchParams.set('category', selected);
+    history.replaceState({}, '', url);
+  }
+
+  buttons.forEach((button) => button.addEventListener('click', () => applyCategory(button.dataset.category ?? 'all')));
+  select?.addEventListener('change', () => applyCategory(select.value));
+  applyCategory(new URLSearchParams(window.location.search).get('category') ?? 'all');
+</script>
