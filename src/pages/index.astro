@@ -3,8 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { getCollection } from 'astro:content';
 import { projects } from '../data/projects';
+import { isPostPublished } from '../utils/posts';
 
-const posts = (await getCollection('blog', ({ data }) => !data.draft))
+const posts = (await getCollection('blog', ({ data }) => isPostPublished(data)))
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
   .slice(0, 2);
 const featuredProjects = projects.filter((project) => project.featured).slice(0, 3);
