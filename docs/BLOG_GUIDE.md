@@ -18,14 +18,35 @@ description: "A short summary shown on the Writing page."
 category: Microsoft
 publishedAt: 2026-09-20
 tags: [Microsoft 365, Entra ID, PowerShell]
+references:
+  - label: "Get-M365TenantAssessment.ps1"
+    type: Script
+    url: "https://github.com/Young-Systems/example/blob/main/Get-M365TenantAssessment.ps1"
 draft: false
 ---
 ```
 
 - `category` creates the Writing page filter automatically.
 - `tags` describe the technologies or subjects.
+- `references` optionally links readers to scripts, repositories, documentation, or other source material.
 - `draft: true` prevents the article and its URL from being published.
 - Add `updatedAt: 2026-10-01` after a substantial revision.
+
+## Add references
+
+Add one or more references to the article frontmatter. The `type` is optional; `label` and a complete `url` are required.
+
+```yaml
+references:
+  - label: "Get-M365TenantAssessment.ps1"
+    type: Script
+    url: "https://github.com/Young-Systems/example/blob/main/Get-M365TenantAssessment.ps1"
+  - label: "Microsoft Graph documentation"
+    type: Documentation
+    url: "https://learn.microsoft.com/graph/"
+```
+
+When references are present, the site displays them in a dedicated block near the article metadata. Omit `references` when an article does not need them.
 
 ## Schedule an article
 
