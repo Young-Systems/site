@@ -11,6 +11,11 @@ npm run dev
 
 Run `npm run build` before opening a pull request. The site deploys to GitHub Pages from `main` through `.github/workflows/deploy.yml`.
 
+## Contributor guides
+
+- [Creating and formatting blog posts](docs/BLOG_GUIDE.md)
+- [Maintaining projects and certifications](docs/PORTFOLIO_GUIDE.md)
+
 ## Publishing a field note
 
 Add a Markdown file to `src/content/blog/`. Required frontmatter:
