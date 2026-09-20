@@ -18,6 +18,13 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    title: 'Microsoft Entra Test Tenant',
+    description: 'Leveraging the free E5 trial plan for testing custom solutions and implementing best practices while studying Microsoft services.',
+    tags: ['Microsoft 365', 'Microsoft Administration', 'Entra ID'],
+    status: 'Operating',
+    featured: true,
+  },
+  {
     title: 'Segmented Proxmox Homelab',
     description: 'Multi-node virtualization environment with OPNsense routing, isolated service networks, centralized DNS, and secure remote access.',
     tags: ['Proxmox', 'OPNsense', 'VLANs', 'NetBird'],
@@ -29,13 +36,13 @@ export const projects: Project[] = [
     description: 'Public-cloud ingress and identity layer that connects remote clients to private services without directly exposing the homelab.',
     tags: ['Traefik', 'Authentik', 'Docker', 'OCI'],
     status: 'Operating',
-    featured: true,
+    featured: false,
   },
   {
     title: 'Media Automation Platform',
     description: 'Containerized request, acquisition, organization, and playback pipeline with network isolation and shared storage.',
     tags: ['Docker Compose', 'Jellyfin', 'Linux'],
-    status: 'Lab',
+    status: 'Operating',
   },
   {
     title: 'Network Documentation Model',
