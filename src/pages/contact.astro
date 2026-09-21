@@ -4,28 +4,57 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout title="Contact — Young Systems" description="Contact Samuel Young about systems engineering, automation, or technical collaboration.">
   <header class="page-header"><p class="eyebrow">Contact</p><h1>Let’s compare notes.</h1><p>For technical collaboration, questions about something published here, or a conversation about infrastructure and automation.</p></header>
-  <section class="contact-panel">
-    <div><h2>The clearest way to reach me is by email.</h2><p>Include a little context about the system, problem, or project. I read every message, but I may not be able to provide individual troubleshooting support.</p></div>
-    <div class="contact-methods">
-      <a href="mailto:samuel@young-systems.com"><span>Email</span><small>samuel@young-systems.com</small></a>
-      <a href="https://github.com/cyber-syoung"><span>GitHub</span><small>cyber-syoung ↗</small></a>
-    </div>
+  <section class="contact-intro">
+    <h2>Choose the channel that fits.</h2>
+    <p>Email is the clearest way to reach me directly. GitHub is where I publish code and technical projects, and LinkedIn is the best place to follow my professional work.</p>
   </section>
-  <section class="linkedin-section" aria-labelledby="linkedin-heading">
-    <p class="eyebrow">Professional profile</p>
+
+  <section class="contact-cards" aria-label="Contact methods">
     <a
-      class="linkedin-card"
+      class="contact-card"
+      href="mailto:samuel@young-systems.com"
+      aria-label="Email Samuel Young at samuel@young-systems.com"
+    >
+      <div class="contact-card-mark" aria-hidden="true">@</div>
+      <div class="contact-card-copy">
+        <span class="contact-card-label">Email</span>
+        <h2>samuel@young-systems.com</h2>
+        <p>Send a message about technical collaboration, something published here, or an infrastructure and automation project.</p>
+        <span class="contact-card-link">Write an email <span aria-hidden="true">→</span></span>
+      </div>
+    </a>
+
+    <a
+      class="contact-card"
+      href="https://github.com/cyber-syoung"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="View cyber-syoung on GitHub (opens in a new tab)"
+    >
+      <div class="contact-card-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" role="img"><path fill="currentColor" d="M12 .7a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2.23c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.77 2.72 1.26 3.38.96.1-.75.4-1.26.74-1.55-2.57-.29-5.27-1.28-5.27-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.47.11-3.05 0 0 .97-.31 3.16 1.18A11 11 0 0 1 12 6.12c.98 0 1.95.13 2.87.39 2.19-1.49 3.15-1.18 3.15-1.18.63 1.58.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.71 5.38-5.29 5.67.42.36.79 1.06.79 2.14v3.27c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .7Z"/></svg>
+      </div>
+      <div class="contact-card-copy">
+        <span class="contact-card-label">GitHub</span>
+        <h2>cyber-syoung</h2>
+        <p>Explore the repositories behind my automation, infrastructure projects, documentation, and this website.</p>
+        <span class="contact-card-link">View repositories <span aria-hidden="true">↗</span></span>
+      </div>
+    </a>
+
+    <a
+      class="contact-card"
       href="https://www.linkedin.com/in/cyber-syoung/"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="View Samuel Young on LinkedIn (opens in a new tab)"
     >
       <img src="/images/profile/samuel-young.jpg" alt="Samuel Young" width="176" height="176" />
-      <div class="linkedin-card-copy">
-        <span class="linkedin-label">LinkedIn</span>
-        <h2 id="linkedin-heading">Samuel Young</h2>
+      <div class="contact-card-copy">
+        <span class="contact-card-label">LinkedIn</span>
+        <h2>Samuel Young</h2>
         <p>Systems Engineer, Integrations @ NetCov - Innovation Committee Founding Member | Microsoft 365 Certified: Administrator Expert</p>
-        <span class="linkedin-link">View profile <span aria-hidden="true">↗</span></span>
+        <span class="contact-card-link">View profile <span aria-hidden="true">↗</span></span>
       </div>
     </a>
   </section>
