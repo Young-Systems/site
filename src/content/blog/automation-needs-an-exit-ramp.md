@@ -4,7 +4,7 @@ description: "Reliable automation should know when to stop, explain what it foun
 category: Automation
 publishedAt: 2026-09-18
 tags: [PowerShell, Automation, Operations]
-draft: false
+draft: true
 ---
 
 The first version of an administrative script usually follows the happy path: connect, find an object, change it, and print a success message. That can save time, but it is not yet dependable automation.

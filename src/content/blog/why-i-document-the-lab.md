@@ -4,7 +4,7 @@ description: "A homelab is most useful when it teaches more than installation. D
 category: Homelab
 publishedAt: 2026-09-19
 tags: [Documentation, Homelab, Operations]
-draft: false
+draft: true
 ---
 
 A homelab can become a collection of services that work only because the person who built them remembers every unusual decision. That is useful for experimentation, but it leaves out one of the harder parts of infrastructure work: making a system understandable to someone who did not build it.
