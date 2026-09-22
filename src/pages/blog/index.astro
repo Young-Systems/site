@@ -2,8 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { isPostPublished } from '../../utils/posts';
+import { formatEasternDateTime, getPublicationDate } from '../../utils/dates';
 
-const posts = (await getCollection('blog', ({ data }) => isPostPublished(data))).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const posts = (await getCollection('blog', ({ data }) => isPostPublished(data))).sort((a, b) => getPublicationDate(b).valueOf() - getPublicationDate(a).valueOf());
 const categories = [...new Set(posts.map((post) => post.data.category))].sort((a, b) => a.localeCompare(b));
 const categoryCounts = new Map(categories.map((category) => [category, posts.filter((post) => post.data.category === category).length]));
 ---
@@ -40,7 +41,7 @@ const categoryCounts = new Map(categories.map((category) => [category, posts.fil
             data-post-search={[post.data.title, post.data.description, post.data.category, ...post.data.tags].join(' ').toLocaleLowerCase('en-US')}
             href={`/blog/${post.id}/`}
           >
-            <time datetime={post.data.publishedAt.toISOString()}>{post.data.publishedAt.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric', timeZone: 'UTC' })}</time>
+            <time datetime={getPublicationDate(post).toISOString()}>{formatEasternDateTime(getPublicationDate(post))}</time>
             <div><span class="writing-category">{post.data.category}</span><h2>{post.data.title}</h2><p>{post.data.description}</p><ul class="tag-list">{post.data.tags.map((tag) => <li>{tag}</li>)}</ul></div>
             <span class="arrow" aria-hidden="true">↗</span>
           </a>)}

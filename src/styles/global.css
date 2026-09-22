@@ -142,7 +142,7 @@ h2.thought-title { font-weight: 600; }
 .article-search-clear { margin-right: .45rem; padding: .35rem .5rem; border: 0; background: transparent; color: var(--muted); font: 500 .7rem var(--mono); cursor: pointer; }
 .article-search-clear:hover, .article-search-clear:focus-visible { color: var(--accent-light); }
 .filter-summary { margin: 0 0 .75rem; color: var(--muted); font-size: .82rem; }
-.writing-item { display: grid; grid-template-columns: 160px 1fr auto; gap: 2rem; align-items: start; padding: 2rem 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+.writing-item { display: grid; grid-template-columns: 200px 1fr auto; gap: 2rem; align-items: start; padding: 2rem 0; border-bottom: 1px solid var(--line); text-decoration: none; }
 .writing-item[hidden] { display: none; }
 .writing-item time { color: var(--quiet); font: .75rem var(--mono); }
 .writing-category { display: block; margin-bottom: .35rem; color: var(--accent-light); font: .68rem var(--mono); text-transform: uppercase; letter-spacing: .08em; }

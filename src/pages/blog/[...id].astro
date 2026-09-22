@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
 import { isPostPublished } from '../../utils/posts';
+import { getPublicationDate } from '../../utils/dates';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => isPostPublished(data));
@@ -13,6 +14,6 @@ const { Content, headings } = await render(post);
 const words = (post.body ?? '').split(/\s+/).filter(Boolean).length;
 ---
 
-<PostLayout {...post.data} words={words} headings={headings}>
+<PostLayout {...post.data} publishedAt={getPublicationDate(post)} words={words} headings={headings}>
   <Content />
 </PostLayout>

@@ -2,9 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 import { isPostPublished } from '../../utils/posts';
+import { formatEasternDateTime, getPublicationDate } from '../../utils/dates';
 
 const thoughts = (await getCollection('thoughts', ({ data }) => isPostPublished(data)))
-  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+  .sort((a, b) => getPublicationDate(b).valueOf() - getPublicationDate(a).valueOf());
 const thoughtFeed = await Promise.all(thoughts.map(async (thought) => {
   const { Content } = await render(thought);
   return { thought, Content };
@@ -25,7 +26,7 @@ const thoughtFeed = await Promise.all(thoughts.map(async (thought) => {
           <div class="thought-meta">
             <strong>Samuel Young</strong>
             <a href={`#${thought.id}`} aria-label={`Permanent link to ${thought.data.title}`}>
-              <time datetime={thought.data.publishedAt.toISOString()}>{thought.data.publishedAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</time>
+              <time datetime={getPublicationDate(thought).toISOString()}>{formatEasternDateTime(getPublicationDate(thought))}</time>
             </a>
           </div>
           <h2 class="thought-title">{thought.data.title}</h2>

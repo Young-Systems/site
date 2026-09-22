@@ -9,7 +9,7 @@ Create a lowercase, hyphenated `.md` file:
 ```yaml
 ---
 title: "Certifications are more useful as a roadmap than a credential"
-publishedAt: 2026-09-22
+publishedAt: 2026-09-22T09:00:00-04:00
 tags: [Career, Certifications]
 draft: false
 ---
@@ -21,7 +21,8 @@ The site renders the complete thought directly in the `/thoughts` feed and autom
 
 - `tags` are optional and appear on the full Thoughts page.
 - `draft: true` hides the thought from both feeds.
-- `publishAt` can schedule a thought using an ISO 8601 UTC timestamp, just like an article.
+- `publishAt` can schedule a thought using an ISO 8601 timestamp, just like an article.
+- Use `-04:00` during EDT and `-05:00` during EST. The site displays the correct Eastern abbreviation automatically.
 
 ## Preview and publish
 

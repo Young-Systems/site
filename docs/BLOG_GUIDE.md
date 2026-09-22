@@ -16,7 +16,7 @@ Create a lowercase, hyphenated `.md` file and begin with this frontmatter:
 title: "Article title"
 description: "A short summary shown on the Writing page."
 category: Microsoft
-publishedAt: 2026-09-20
+publishedAt: 2026-09-20T09:00:00-04:00
 tags: [Microsoft 365, Entra ID, PowerShell]
 references:
   - label: "Get-M365TenantAssessment.ps1"
@@ -30,7 +30,8 @@ draft: false
 - `tags` describe the technologies or subjects.
 - `references` optionally links readers to scripts, repositories, documentation, or other source material.
 - `draft: true` prevents the article and its URL from being published.
-- Add `updatedAt: 2026-10-01` after a substantial revision.
+- Add `updatedAt: 2026-10-01T14:30:00-04:00` after a substantial revision.
+- Use an explicit Eastern offset: `-04:00` during EDT and `-05:00` during EST. The site displays the appropriate `EDT` or `EST` abbreviation automatically.
 
 ## Add references
 
@@ -50,11 +51,11 @@ When references are present, the site displays them in a dedicated block near th
 
 ## Schedule an article
 
-Add `publishAt` using an ISO 8601 UTC timestamp:
+Add `publishAt` using an ISO 8601 timestamp with the Eastern offset:
 
 ```yaml
-publishedAt: 2026-10-05
-publishAt: 2026-10-05T14:00:00Z
+publishedAt: 2026-10-05T09:00:00-04:00
+publishAt: 2026-10-05T09:00:00-04:00
 draft: false
 ```
 
