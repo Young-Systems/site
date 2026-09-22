@@ -1,6 +1,6 @@
 ---
-title: "Why chasing a Cybersecurity career isn't always worth it"
-description: "This article talks about why it's important to slow down, and look around when it comes to choosing your career path."
+title: "You Don't Need a Cybersecurity Title to Work in Cybersecurity"
+description: "Why meaningful cybersecurity work happens across IT - and why you shouldn't choose a career based solely on a title or promised salary."
 category: Career
 publishedAt: 2026-09-23
 publishAt: 2026-09-23T12:00:00Z
@@ -8,52 +8,55 @@ tags: [Career Advice, Cybersecurity, IT]
 draft: false
 ---
 
-> **Disclaimer: It is your life, choose what you want to do with it. Don't let a random stranger tell you what to do (unless you are into it). This is an opinion piece based on my own experience chasing the cybersec dream, and how it got me to the place where I am today.**
+> **Disclaimer: It's your life - choose what you want to do with it. Don't let a random stranger tell you what to do, unless you're into that. This is an opinion piece based on my experience chasing the cybersecurity dream and how that journey helped me reach where I am today.**
 
 ## Introduction
-There has been a push for the past five to ten years from content creators, which states that Cybersecurity is the best path you can take to make the most amount of money in IT.
+Over the past five to ten years, many content creators have promoted cybersecurity as one of the best paths to a high-paying career in IT.
 
-While they are not entirely inaccurate, I can guarantee that it's not the full story. 
+There is some truth behind that message, but it leaves out an important part of the story.
 
 ## Why should I listen to you?
-I've been working in IT for nearly five years (that's like thirty in human years!). I spent half of this time chasing a Cybersecurity career because I was presented this notion that this speciality would ensure financial freedom by the time I get married and have kids! 
+I've been working in IT for nearly five years (that's like thirty in human years!). I spent about half of that time chasing a cybersecurity career because I had been sold the idea that this specialty would ensure financial freedom by the time I got married and had kids.
 
-I performed the same steps everyone else was doing:
+I followed the same general playbook as many other aspiring cybersecurity professionals:
 1. Got my CompTIA Security+
 2. Signed up for TryHackMe
 3. Set up my own hacking lab
 
-etc. 
-
 I had my mind and my heart set on this dream. 
 
 ## The advice I still carry around with me
-In my second IT job, I had a director who had tought me a lot of skills that I still use to this day. 
+In my second IT job, I had a director who taught me many of the skills I still use today.
 
 He told me:
 
-`"There's cybersecurity in everything we do."`
+> "There's cybersecurity in everything we do."
 
-And it really clicked then! Who knew I had to annoy just the right person before I snapped out of my daydream. 
+That was when it really clicked. Who knew all I had to do was annoy the right person before I snapped out of my daydream?
 
 He's completely right. Every day I deal with cybersecurity principles:
 - Principle of least privilege
     - Asking "Why?" when **Becky from HR** asks for **Domain Admin**.
     - Denying **John from Accounting** local administrator privileges just to **install software**. 
-- Hardening of systems
-    - Something as simple as `sudo apt update && sudo apt upgrade -y` or standing up patching policies in the RMM tool, or deploy automation tools such as Ansible.
+- System hardening and maintenance
+    - Keeping systems patched with tools such as Ansible or an RMM platform
+    - Disabling unnecessary services and enforcing secure configurations
 - Identity and Access Management
     - Active Directory
     - Entra ID
 - Security Awareness Training
 
-and more!
+Today, I'm a Systems Engineer whose work regularly overlaps with cybersecurity. I may not hold a dedicated security title, but I still provision identities, apply least privilege, design secure integrations, build Microsoft Entra environments, and automate reporting across client tenants.
 
-Now I am a Systems Engineer with a lot of the experience a typical cybersecurity professional may have, but instead of just monitoring **SentinelOne** or building new **phishing campaigns**, I am performing migrations which involve **provisioning user accounts**, securely designing **custom system integrations**, building **new Microsoft Entra tenents**, or pulling custom reports from a client's **Microsoft** tenant using **best practices with automation**.  
+Dedicated cybersecurity professionals go much deeper into incident response, detection engineering, governance, risk, compliance, penetration testing, and many other disciplines. That work is important - but I eventually realized that I didn't necessarily want the daily responsibilities that came with the title I had been chasing.
 
-I can't help but thinking of what would have happened if I kept on the course. I'd likely be bored out of my mind attending SOC2 or CMMC compliance meetings where the entire conversation is centered around printer settings.
+What I actually enjoyed was building and improving systems while making security part of their design. Once I understood that, I stopped treating cybersecurity as the only successful destination and started seeing it as a responsibility shared across IT.
 
 ## Final thoughts
-My hope with this article is not to dissuade you from pursuing your passion, but to help widen the scope of possibilities for you. 
+My goal is not to discourage anyone from pursuing cybersecurity. If investigating incidents, engineering detections, testing defenses, or managing risk genuinely interests you, it can be an excellent career.
+
+But don't pursue it solely because someone online told you it is the fastest route to a six-figure salary. Explore infrastructure, cloud, networking, identity, automation, support, and development. You may discover that the work you actually enjoy still involves cybersecurity - just without "security" in your job title.
+
+Slow down, look around, and choose the work that interests you - not merely the title that was marketed to you.
 
 Thanks for reading!
