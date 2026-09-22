@@ -25,14 +25,27 @@ const categoryCounts = new Map(categories.map((category) => [category, posts.fil
         </select>
       </aside>
       <div>
+        <div class="article-search">
+          <label class="article-search-label" for="article-search">Search articles</label>
+          <div class="article-search-control">
+            <input id="article-search" type="search" placeholder="Search titles, topics, and tags" autocomplete="off" />
+            <button class="article-search-clear" type="button" hidden>Clear</button>
+          </div>
+        </div>
         <p class="filter-summary" role="status" aria-live="polite">Showing all {posts.length} articles</p>
         <div class="writing-list">
-          {posts.map((post) => <a class="writing-item" data-post-category={post.data.category} href={`/blog/${post.id}/`}>
+          {posts.map((post) => <a
+            class="writing-item"
+            data-post-category={post.data.category}
+            data-post-search={[post.data.title, post.data.description, post.data.category, ...post.data.tags].join(' ').toLocaleLowerCase('en-US')}
+            href={`/blog/${post.id}/`}
+          >
             <time datetime={post.data.publishedAt.toISOString()}>{post.data.publishedAt.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric', timeZone: 'UTC' })}</time>
             <div><span class="writing-category">{post.data.category}</span><h2>{post.data.title}</h2><p>{post.data.description}</p><ul class="tag-list">{post.data.tags.map((tag) => <li>{tag}</li>)}</ul></div>
             <span class="arrow" aria-hidden="true">↗</span>
           </a>)}
         </div>
+        <p class="search-empty" hidden>No articles match that search.</p>
       </div>
     </> : <p class="empty-state">The first field note is being prepared.</p>}
   </section>
@@ -43,30 +56,63 @@ const categoryCounts = new Map(categories.map((category) => [category, posts.fil
   const select = document.querySelector<HTMLSelectElement>('#category-select');
   const articles = [...document.querySelectorAll<HTMLElement>('[data-post-category]')];
   const summary = document.querySelector<HTMLElement>('.filter-summary');
+  const search = document.querySelector<HTMLInputElement>('#article-search');
+  const clearSearch = document.querySelector<HTMLButtonElement>('.article-search-clear');
+  const searchEmpty = document.querySelector<HTMLElement>('.search-empty');
   const validCategories = new Set(['all', ...buttons.map((button) => button.dataset.category ?? '')]);
+  let selectedCategory = 'all';
 
-  function applyCategory(category: string) {
-    const selected = validCategories.has(category) ? category : 'all';
+  function applyFilters(category = selectedCategory) {
+    selectedCategory = validCategories.has(category) ? category : 'all';
+    const query = search?.value.trim() ?? '';
+    const normalizedQuery = query.toLocaleLowerCase('en-US');
     let visible = 0;
+
     articles.forEach((article) => {
-      const show = selected === 'all' || article.dataset.postCategory === selected;
+      const matchesCategory = selectedCategory === 'all' || article.dataset.postCategory === selectedCategory;
+      const matchesSearch = !normalizedQuery || article.dataset.postSearch?.includes(normalizedQuery);
+      const show = Boolean(matchesCategory && matchesSearch);
       article.hidden = !show;
       if (show) visible += 1;
     });
+
     buttons.forEach((button) => {
-      const active = button.dataset.category === selected;
+      const active = button.dataset.category === selectedCategory;
       button.classList.toggle('is-active', active);
       button.setAttribute('aria-pressed', String(active));
     });
-    if (select) select.value = selected;
-    if (summary) summary.textContent = selected === 'all' ? `Showing all ${visible} articles` : `Showing ${visible} ${selected} ${visible === 1 ? 'article' : 'articles'}`;
+
+    if (select) select.value = selectedCategory;
+    if (clearSearch) clearSearch.hidden = !query;
+    if (searchEmpty) searchEmpty.hidden = visible > 0;
+
+    if (summary) {
+      const articleLabel = visible === 1 ? 'article' : 'articles';
+      if (query && selectedCategory !== 'all') summary.textContent = `Showing ${visible} ${selectedCategory} ${articleLabel} matching “${query}”`;
+      else if (query) summary.textContent = `Showing ${visible} ${articleLabel} matching “${query}”`;
+      else if (selectedCategory !== 'all') summary.textContent = `Showing ${visible} ${selectedCategory} ${articleLabel}`;
+      else summary.textContent = `Showing all ${visible} articles`;
+    }
+
     const url = new URL(window.location.href);
-    if (selected === 'all') url.searchParams.delete('category');
-    else url.searchParams.set('category', selected);
+    if (selectedCategory === 'all') url.searchParams.delete('category');
+    else url.searchParams.set('category', selectedCategory);
+    if (query) url.searchParams.set('q', query);
+    else url.searchParams.delete('q');
     history.replaceState({}, '', url);
   }
 
-  buttons.forEach((button) => button.addEventListener('click', () => applyCategory(button.dataset.category ?? 'all')));
-  select?.addEventListener('change', () => applyCategory(select.value));
-  applyCategory(new URLSearchParams(window.location.search).get('category') ?? 'all');
+  buttons.forEach((button) => button.addEventListener('click', () => applyFilters(button.dataset.category ?? 'all')));
+  select?.addEventListener('change', () => applyFilters(select.value));
+  search?.addEventListener('input', () => applyFilters());
+  clearSearch?.addEventListener('click', () => {
+    if (!search) return;
+    search.value = '';
+    search.focus();
+    applyFilters();
+  });
+
+  const params = new URLSearchParams(window.location.search);
+  if (search) search.value = params.get('q') ?? '';
+  applyFilters(params.get('category') ?? 'all');
 </script>
