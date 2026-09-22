@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+import { isPostPublished } from '../../utils/posts';
+
+const thoughts = (await getCollection('thoughts', ({ data }) => isPostPublished(data)))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const thoughtFeed = await Promise.all(thoughts.map(async (thought) => {
+  const { Content } = await render(thought);
+  return { thought, Content };
+}));
+---
+
+<BaseLayout title="Quick Thoughts — Young Systems" description="Short observations on technology, careers, infrastructure, and reliable systems.">
+  <header class="page-header">
+    <p class="eyebrow">Quick thoughts</p>
+    <h1>Ideas without the ceremony.</h1>
+    <p>Short observations, opinions, and lessons that do not need the structure of a full article.</p>
+  </header>
+  <section class="section thoughts-index" aria-label="Thoughts feed">
+    {thoughtFeed.length ? <div class="thought-feed">
+      {thoughtFeed.map(({ thought, Content }) => <article class="thought-feed-item" id={thought.id}>
+        <span class="thought-avatar" aria-hidden="true">YS</span>
+        <div class="thought-content">
+          <div class="thought-meta">
+            <strong>Samuel Young</strong>
+            <a href={`#${thought.id}`} aria-label={`Permanent link to ${thought.data.title}`}>
+              <time datetime={thought.data.publishedAt.toISOString()}>{thought.data.publishedAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</time>
+            </a>
+          </div>
+          <h2 class="thought-title">{thought.data.title}</h2>
+          <div class="thought-body"><Content /></div>
+          {thought.data.tags.length > 0 && <ul class="tag-list">{thought.data.tags.map((tag) => <li>{tag}</li>)}</ul>}
+        </div>
+      </article>)}
+    </div> : <p class="empty-state">The first quick thought is being prepared.</p>}
+  </section>
+</BaseLayout>

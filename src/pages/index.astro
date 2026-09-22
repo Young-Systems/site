@@ -4,11 +4,15 @@ import ProjectCard from '../components/ProjectCard.astro';
 import { getCollection } from 'astro:content';
 import { projects } from '../data/projects';
 import { isPostPublished } from '../utils/posts';
+import { getThoughtExcerpt } from '../utils/thoughts';
 
 const posts = (await getCollection('blog', ({ data }) => isPostPublished(data)))
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
   .slice(0, 2);
 const featuredProjects = projects.filter((project) => project.featured).slice(0, 3);
+const thoughts = (await getCollection('thoughts', ({ data }) => isPostPublished(data)))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+  .slice(0, 3);
 ---
 
 <BaseLayout>
@@ -41,6 +45,24 @@ const featuredProjects = projects.filter((project) => project.featured).slice(0,
     </div>
     <div class="actions"><a class="button" href="/projects">View all projects →</a></div>
   </section>
+
+  {thoughts.length > 0 && <section class="section quick-thoughts-section">
+    <div class="section-heading">
+      <div><p class="eyebrow">Quick thoughts</p><h2>Ideas that do not need a full article.</h2></div>
+      <p>Short observations on technology, careers, infrastructure, and the work behind reliable systems.</p>
+    </div>
+    <div class="thought-feed thought-feed-preview">
+      {thoughts.map((thought) => <a class="thought-feed-item" href={`/thoughts#${thought.id}`}>
+        <span class="thought-avatar" aria-hidden="true">YS</span>
+        <span class="thought-content">
+          <span class="thought-meta"><strong>Samuel Young</strong><time datetime={thought.data.publishedAt.toISOString()}>{thought.data.publishedAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' })}</time></span>
+          <strong class="thought-title">{thought.data.title}</strong>
+          <span class="thought-excerpt">{getThoughtExcerpt(thought.body)}</span>
+        </span>
+      </a>)}
+    </div>
+    <div class="actions"><a class="button" href="/thoughts">View all thoughts →</a></div>
+  </section>}
 
   <section class="section">
     <div class="section-heading">

@@ -74,6 +74,28 @@ a.project-card:hover { background: var(--surface-raised); }
 .tag-list { display: flex; flex-wrap: wrap; gap: .45rem; padding: 0; margin: 0; list-style: none; }
 .tag-list li { padding: .25rem .48rem; border: 1px solid var(--line); color: var(--muted); font: .68rem var(--mono); }
 .card-link { margin-top: 1.5rem; color: var(--accent-light); font: .76rem var(--mono); }
+.quick-thoughts-section { padding-top: 4rem; }
+.thoughts-index { max-width: 760px; margin: 0 auto; padding-top: 1rem; }
+.thought-feed { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); }
+.thought-feed-item { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 1rem; padding: 1.4rem; border-bottom: 1px solid var(--line); color: inherit; scroll-margin-top: 1rem; }
+.thought-feed-item:last-child { border-bottom: 0; }
+a.thought-feed-item { text-decoration: none; transition: background .2s ease; }
+a.thought-feed-item:hover, a.thought-feed-item:focus-visible { background: var(--surface-raised); }
+.thought-avatar { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); color: var(--text); font: 500 .7rem var(--mono); }
+.thought-content { min-width: 0; }
+.thought-meta { display: flex; flex-wrap: wrap; gap: .35rem .65rem; align-items: baseline; color: var(--quiet); font-size: .78rem; }
+.thought-meta strong { color: var(--text); font-size: .88rem; }
+.thought-meta a { color: inherit; text-decoration: none; }
+.thought-meta a:hover { color: var(--accent-light); }
+.thought-title { display: block; margin: .65rem 0 .55rem; color: var(--text); font-size: 1.12rem; line-height: 1.3; letter-spacing: -.02em; }
+h2.thought-title { font-weight: 600; }
+.thought-excerpt, .thought-body { color: #c4c5ca; font-size: .94rem; line-height: 1.6; }
+.thought-body p { margin: 0 0 .9rem; }
+.thought-body p:last-child { margin-bottom: 0; }
+.thought-body a { color: var(--accent-light); }
+.thought-body + .tag-list { margin-top: 1.15rem; }
+.thought-feed-preview { max-width: 860px; }
+.thought-feed-preview .thought-feed-item { padding: 1.25rem; }
 .expertise-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem 4rem; }
 .expertise-item { display: grid; grid-template-columns: 44px 1fr; gap: 1rem; padding: 0; }
 .expertise-item:nth-child(odd) { padding-right: 2rem; }
@@ -219,6 +241,8 @@ a.project-card:hover { background: var(--surface-raised); }
   .contact-card-mark { font-size: 3rem; }
   .contact-card-mark svg { width: 52px; height: 52px; }
   .contact-card h2 { margin-top: .3rem; font-size: 1.5rem; }
+  .thought-feed-item { grid-template-columns: 36px minmax(0, 1fr); gap: .8rem; padding: 1rem; }
+  .thought-avatar { width: 36px; height: 36px; font-size: .62rem; }
   .heading-link { opacity: .65; }
 }
 
