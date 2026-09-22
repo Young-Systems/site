@@ -94,6 +94,10 @@ h2.thought-title { font-weight: 600; }
 .thought-body p:last-child { margin-bottom: 0; }
 .thought-body a { color: var(--accent-light); }
 .thought-body + .tag-list { margin-top: 1.15rem; }
+.thought-actions { display: flex; align-items: center; gap: .7rem; margin-top: 1.15rem; }
+.thought-share { padding: .35rem .65rem; border: 1px solid transparent; border-radius: 6px; background: transparent; color: var(--muted); font: 500 .74rem var(--mono); cursor: pointer; transition: color .2s ease, border-color .2s ease, background .2s ease; }
+.thought-share:hover, .thought-share:focus-visible { border-color: var(--line-strong); background: var(--bg); color: var(--accent-light); }
+.thought-share-status { color: var(--quiet); font: .7rem var(--mono); }
 .thought-feed-preview { max-width: 860px; }
 .thought-feed-preview .thought-feed-item { padding: 1.25rem; }
 .expertise-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem 4rem; }
