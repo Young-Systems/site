@@ -1,6 +1,6 @@
 ---
 title: "Why I Earned the MS-102"
-publishedAt: 2026-09-22T14:15:00-04:00
+publishedAt: 2026-09-22T13:30:00-04:00
 tags: [Career, Certifications]
 draft: false
 ---
