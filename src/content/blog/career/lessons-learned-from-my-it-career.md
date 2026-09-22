@@ -2,7 +2,7 @@
 title: "Lessons learned from my IT career"
 description: "Some (likely) unwanted career advice, and lessons learned from my tenure in IT."
 category: Career
-publishedAt: 2026-09-21
+publishedAt: 2026-09-21T19:21:00-04:00
 tags: [Career Advice, IT]
 draft: false
 ---

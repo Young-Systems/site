@@ -2,8 +2,8 @@
 title: "Handling a Client Request That Violates Security Best Practices"
 description: "For those moments when a client sends a request that goes against every fiber of your being."
 category: Career
-publishedAt: 2026-09-25
-publishAt: 2026-09-25T12:00:00Z
+publishedAt: 2026-09-25T08:00:00-04:00
+publishAt: 2026-09-25T08:00:00-04:00
 tags: [Career Advice, Client Management, IT]
 draft: false
 ---

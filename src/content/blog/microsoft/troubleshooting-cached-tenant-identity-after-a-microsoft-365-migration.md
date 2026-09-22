@@ -2,8 +2,8 @@
 title: "Troubleshooting cached tenant identity after a Microsoft 365 Migration"
 description: "Uncovering a potential issue that caught my team by surprise, how we recovered, and what we learned."
 category: Microsoft
-publishedAt: 2026-09-28
-publishAt: 2026-09-28T12:00:00Z
+publishedAt: 2026-09-28T08:00:00-04:00
+publishAt: 2026-09-28T08:00:00-04:00
 tags: [Microsoft 365, Migrations]
 draft: false
 ---

@@ -2,7 +2,7 @@
 title: "Automation needs an exit ramp"
 description: "Reliable automation should know when to stop, explain what it found, and leave a human with a safe next action."
 category: Automation
-publishedAt: 2026-09-18
+publishedAt: 2026-09-18T09:00:00-04:00
 tags: [PowerShell, Automation, Operations]
 draft: true
 ---

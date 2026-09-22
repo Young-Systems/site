@@ -2,8 +2,8 @@
 title: "You Don't Need a Cybersecurity Title to Work in Cybersecurity"
 description: "Why meaningful cybersecurity work happens across IT - and why you shouldn't choose a career based solely on a title or promised salary."
 category: Career
-publishedAt: 2026-09-23
-publishAt: 2026-09-23T12:00:00Z
+publishedAt: 2026-09-23T08:00:00-04:00
+publishAt: 2026-09-23T08:00:00-04:00
 tags: [Career Advice, Cybersecurity, IT]
 draft: false
 ---

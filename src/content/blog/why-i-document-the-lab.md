@@ -2,7 +2,7 @@
 title: "Why I document the lab like production"
 description: "A homelab is most useful when it teaches more than installation. Documentation turns experiments into repeatable engineering work."
 category: Homelab
-publishedAt: 2026-09-19
+publishedAt: 2026-09-19T09:00:00-04:00
 tags: [Documentation, Homelab, Operations]
 draft: true
 ---

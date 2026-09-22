@@ -1,6 +1,6 @@
 ---
 title: "Certifications are more useful as a roadmap than a credential"
-publishedAt: 2026-09-22
+publishedAt: 2026-09-22T13:20:00-04:00
 tags: [Career, Certifications]
 draft: false
 ---
