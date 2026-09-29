@@ -206,6 +206,7 @@ h2.thought-title { font-weight: 600; }
 .prose code { font-family: var(--mono); font-size: .88em; color: #efb1bb; }
 .prose pre { overflow-x: auto; padding: 1.25rem; border: 1px solid var(--line); background: #08090b; }
 .prose blockquote { margin-left: 0; padding-left: 1.2rem; border-left: 2px solid var(--accent); color: var(--muted); }
+.prose img { display: block; max-width: 100%; height: auto; margin: 1.5rem auto; }
 
 .site-footer { display: grid; grid-template-columns: 1fr auto; gap: 2rem; padding: 3.5rem 0; color: var(--muted); font-size: .82rem; }
 .footer-brand { color: var(--text); text-decoration: none; font-weight: 700; }
