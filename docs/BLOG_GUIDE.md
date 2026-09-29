@@ -59,7 +59,7 @@ publishAt: 2026-10-05T09:00:00-04:00
 draft: false
 ```
 
-The article remains excluded from the site, homepage, sitemap, and direct URL until the scheduled time. GitHub rebuilds hourly at 17 minutes past the hour, so publication may occur up to roughly one hour later.
+The article remains excluded from the site, homepage, sitemap, and direct URL until the scheduled time. GitHub schedules a rebuild every 10 minutes at minutes 7, 17, 27, 37, 47, and 57 UTC. GitHub Actions can delay or skip scheduled runs under load, and the Pages deployment also takes time. Check the Actions tab and the live article URL near the planned time; use **Run workflow** on the deploy workflow if a scheduled run is delayed. The site never includes a future article in an earlier build.
 
 ## Common formatting
 
