@@ -258,3 +258,6 @@ a.project-card:hover { background: var(--surface-raised); }
   .post-navigation { position: static; width: 100%; max-height: none; border: 1px solid var(--line); border-radius: 8px; padding: 1rem 1.25rem; }
   .post-body .prose { margin-left: auto; margin-right: auto; }
 }
+
+.post-navigation a { border-left: 2px solid transparent; padding: .3rem .6rem; }
+.post-navigation a[aria-current='location'] { border-left-color: var(--accent-light); background: var(--surface); color: var(--accent-light); font-weight: 600; }
