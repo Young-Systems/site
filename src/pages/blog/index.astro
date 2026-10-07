@@ -9,11 +9,11 @@ const categories = [...new Set(posts.map((post) => post.data.category))].sort((a
 const categoryCounts = new Map(categories.map((category) => [category, posts.filter((post) => post.data.category === category).length]));
 ---
 
-<BaseLayout title="Writing — Young Systems" description="Field notes on Microsoft cloud, infrastructure, identity, and automation.">
-  <header class="page-header"><p class="eyebrow">Writing</p><h1>Technical notes without the ceremony.</h1><p>Implementation details, troubleshooting records, and lessons from systems that had to work outside of a diagram.</p></header>
+<BaseLayout title="Articles — Young Systems" description="Articles on Microsoft cloud, infrastructure, identity, and automation.">
+  <header class="page-header"><p class="eyebrow">Articles</p><h1>Technical notes without the ceremony.</h1><p>Implementation details, troubleshooting records, and lessons from systems that had to work outside of a diagram.</p></header>
   <section class="section writing-browser">
     {posts.length ? <>
-      <aside class="category-filter" aria-label="Filter writing by category">
+      <aside class="category-filter" aria-label="Filter articles by category">
         <h2>Topics</h2>
         <div class="category-buttons">
           <button type="button" class="category-button is-active" data-category="all" aria-pressed="true"><span>All</span><span>{posts.length}</span></button>

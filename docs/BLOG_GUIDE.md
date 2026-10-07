@@ -14,7 +14,7 @@ Create a lowercase, hyphenated `.md` file and begin with this frontmatter:
 ```yaml
 ---
 title: "Article title"
-description: "A short summary shown on the Writing page."
+description: "A short summary shown on the Articles page."
 category: Microsoft
 publishedAt: 2026-09-20T09:00:00-04:00
 tags: [Microsoft 365, Entra ID, PowerShell]
@@ -26,7 +26,7 @@ draft: false
 ---
 ```
 
-- `category` creates the Writing page filter automatically.
+- `category` creates the Articles page filter automatically.
 - `tags` describe the technologies or subjects.
 - `references` optionally links readers to scripts, repositories, documentation, or other source material.
 - `draft: true` prevents the article and its URL from being published.
@@ -114,6 +114,8 @@ Image saved under `public/images/blog/`:
 ```markdown
 ![Descriptive alternative text](/images/blog/example.png)
 ```
+
+Articles automatically display a Quick access menu from `##` and `###` headings. It stays beside the article on desktop and appears above the body on smaller screens. No manual menu updates are needed.
 
 Astro automatically creates section URLs from headings. The site also adds a clickable `#` beside each section heading. Clicking it jumps to that section and copies the full section URL to the clipboard.
 
