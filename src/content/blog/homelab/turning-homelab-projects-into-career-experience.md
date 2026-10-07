@@ -2,7 +2,7 @@
 title: "Turning Homelab Projects Into Career Experience"
 description: "How to turn personal projects into practical experience you can explain in an interview."
 category: HomeLab
-publishedAt: 2026-10-07T09:00:00-04:00
+publishedAt: 2026-10-07T08:00:00-04:00
 tags: [Home Lab, Career Advice]
 draft: false
 ---
