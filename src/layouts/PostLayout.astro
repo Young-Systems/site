@@ -59,6 +59,52 @@ const sections = headings.filter((heading: { depth: number }) => heading.depth =
 </BaseLayout>
 
 <script>
+  const sectionLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('.post-navigation a'));
+  const trackedSections = sectionLinks.flatMap((link) => {
+    const heading = document.getElementById(decodeURIComponent(link.hash.slice(1)));
+    return heading ? [{ link, heading }] : [];
+  });
+
+  if (trackedSections.length) {
+    let activeLink: HTMLAnchorElement | undefined;
+    let updatePending = false;
+
+    const updateActiveSection = () => {
+      updatePending = false;
+      const readingLine = Math.min(window.innerHeight * 0.2, 160);
+      let current = trackedSections[0];
+      for (const section of trackedSections) {
+        if (section.heading.getBoundingClientRect().top > readingLine) break;
+        current = section;
+      }
+      // The last section may be too short to reach the reading line.
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) {
+        current = trackedSections[trackedSections.length - 1];
+      }
+      if (current.link === activeLink) return;
+      activeLink?.removeAttribute('aria-current');
+      current.link.setAttribute('aria-current', 'location');
+      activeLink = current.link;
+    };
+
+    const scheduleSectionUpdate = () => {
+      if (updatePending) return;
+      updatePending = true;
+      window.requestAnimationFrame(updateActiveSection);
+    };
+
+    window.addEventListener('scroll', scheduleSectionUpdate, { passive: true });
+    window.addEventListener('resize', scheduleSectionUpdate);
+    window.addEventListener('hashchange', scheduleSectionUpdate);
+    window.addEventListener('load', scheduleSectionUpdate);
+    // Re-evaluate positions when images or fonts change the article layout.
+    const prose = document.querySelector('.prose');
+    if (prose && 'ResizeObserver' in window) {
+      new ResizeObserver(scheduleSectionUpdate).observe(prose);
+    }
+    updateActiveSection();
+  }
+
   const shareButton = document.querySelector<HTMLButtonElement>('.share-button');
   const shareStatus = document.querySelector<HTMLElement>('.share-status');
   const sectionLinkStatus = document.createElement('span');
