@@ -115,6 +115,8 @@ Image saved under `public/images/blog/`:
 ![Descriptive alternative text](/images/blog/example.png)
 ```
 
+Articles automatically display a Quick access menu from `##` and `###` headings. It stays beside the article on desktop and appears above the body on smaller screens. No manual menu updates are needed.
+
 Astro automatically creates section URLs from headings. The site also adds a clickable `#` beside each section heading. Clicking it jumps to that section and copies the full section URL to the clipboard.
 
 ## Publish changes

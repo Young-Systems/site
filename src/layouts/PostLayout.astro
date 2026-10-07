@@ -1,11 +1,12 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import { formatEasternDateTime } from '../utils/dates';
-const { title, description, publishedAt, updatedAt, tags = [], references = [] } = Astro.props;
+const { title, description, publishedAt, updatedAt, tags = [], references = [], headings = [] } = Astro.props;
+const sections = headings.filter((heading: { depth: number }) => heading.depth === 2 || heading.depth === 3);
 ---
 
 <BaseLayout title={`${title} — Young Systems`} description={description}>
-  <article class="post">
+  <article class:list={["post", { "post-with-navigation": sections.length > 0 }]}>
     <header class="post-header">
       <a class="back-link" href="/blog">← All writing</a>
       <p class="eyebrow">Field notes</p>
@@ -39,7 +40,21 @@ const { title, description, publishedAt, updatedAt, tags = [], references = [] }
         <span class="share-status" role="status" aria-live="polite"></span>
       </div>
     </header>
-    <div class="prose"><slot /></div>
+    <div class="post-body">
+      {sections.length > 0 && <aside class="post-navigation">
+        <details open>
+          <summary>Quick access</summary>
+          <nav aria-label="Article sections">
+            <ul>{sections.map((heading: { depth: number; slug: string; text: string }) => (
+              <li class:list={[{ 'subsection': heading.depth === 3 }]}>
+                <a href={`#${heading.slug}`}>{heading.text}</a>
+              </li>
+            ))}</ul>
+          </nav>
+        </details>
+      </aside>}
+      <div class="prose"><slot /></div>
+    </div>
   </article>
 </BaseLayout>
 
