@@ -8,8 +8,8 @@ const sections = headings.filter((heading: { depth: number }) => heading.depth =
 <BaseLayout title={`${title} — Young Systems`} description={description}>
   <article class:list={["post", { "post-with-navigation": sections.length > 0 }]}>
     <header class="post-header">
-      <a class="back-link" href="/blog">← All writing</a>
-      <p class="eyebrow">Field notes</p>
+      <a class="back-link" href="/blog">← All articles</a>
+      <p class="eyebrow">Article</p>
       <h1>{title}</h1>
       <p class="post-dek">{description}</p>
       <div class="post-details">

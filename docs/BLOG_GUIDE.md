@@ -14,7 +14,7 @@ Create a lowercase, hyphenated `.md` file and begin with this frontmatter:
 ```yaml
 ---
 title: "Article title"
-description: "A short summary shown on the Writing page."
+description: "A short summary shown on the Articles page."
 category: Microsoft
 publishedAt: 2026-09-20T09:00:00-04:00
 tags: [Microsoft 365, Entra ID, PowerShell]
@@ -26,7 +26,7 @@ draft: false
 ---
 ```
 
-- `category` creates the Writing page filter automatically.
+- `category` creates the Articles page filter automatically.
 - `tags` describe the technologies or subjects.
 - `references` optionally links readers to scripts, repositories, documentation, or other source material.
 - `draft: true` prevents the article and its URL from being published.
