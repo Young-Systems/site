@@ -4,7 +4,7 @@ import CertificationCard from '../components/CertificationCard.astro';
 import { certifications } from '../data/certifications';
 ---
 
-<BaseLayout title="Certifications — Young Systems" description="Current Microsoft and CompTIA certifications held by Samuel Young.">
+<BaseLayout title="Certifications | Young Systems" description="Current Microsoft and CompTIA certifications held by Samuel Young.">
   <header class="page-header"><p class="eyebrow">Certifications</p><h1>Credentials</h1><p>Current certifications across Microsoft cloud, identity, security, networking, and IT infrastructure.</p></header>
   <section class="credential-list" aria-label="Certifications">
     {certifications.map((certification) => <CertificationCard certification={certification} />)}

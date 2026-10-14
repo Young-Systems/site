@@ -5,7 +5,7 @@ const { title, description, publishedAt, updatedAt, tags = [], references = [], 
 const sections = headings.filter((heading: { depth: number }) => heading.depth === 2 || heading.depth === 3);
 ---
 
-<BaseLayout title={`${title} — Young Systems`} description={description}>
+<BaseLayout title={`${title} | Young Systems`} description={description}>
   <article class:list={["post", { "post-with-navigation": sections.length > 0 }]}>
     <header class="post-header">
       <a class="back-link" href="/blog">← All articles</a>
