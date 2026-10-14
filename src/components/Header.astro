@@ -1,6 +1,8 @@
 ---
+import { servicesConfig } from '../data/services';
 const path = Astro.url.pathname;
 const links = [
+  ...(servicesConfig.acceptingProjects ? [['Services', '/services']] : []),
   ['Projects', '/projects'],
   ['Articles', '/blog'],
   ['About', '/about'],

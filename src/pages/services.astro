@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { servicesConfig, services } from '../data/services';
+const endpoint = servicesConfig.inquiryEndpoint.trim();
+if (endpoint && !endpoint.startsWith('https://')) throw new Error('Project inquiry endpoint must use HTTPS.');
+---
+<BaseLayout title="Contract Project Services | Young Systems" description="Microsoft 365 migrations, PowerShell automation, tenant setup, and identity projects for MSPs and small businesses.">
+  <header class="page-header">
+    <p class="eyebrow">Project services / MSPs & small businesses</p>
+    <h1>Your project.<br />My engineering experience.</h1>
+    <p>I help MSPs add engineering capacity and small businesses complete Microsoft cloud and automation projects, with a defined scope and a documented handoff.</p>
+    {servicesConfig.acceptingProjects ? <div class="actions"><a class="button primary" href="#inquiry">Discuss a project</a><a class="button" href="/projects">Explore my work</a></div> : <p class="availability-note">I am currently unavailable for new contract projects. You can still explore my <a href="/projects">projects</a> and <a href="/blog">articles</a>.</p>}
+  </header>
+  <section class="section" aria-labelledby="services-heading">
+    <p class="eyebrow">What I offer</p><h2 id="services-heading">Practical help with a clear outcome.</h2>
+    <div class="services-grid">{services.map(service => <article class="service-card"><h3>{service.title}</h3><p>{service.description}</p><p class="service-deliverables"><strong>Typical scope</strong><br />{service.deliverables}</p></article>)}</div>
+  </section>
+  <section class="service-process section" aria-labelledby="process-heading">
+    <div><p class="eyebrow">How we work</p><h2 id="process-heading">Agree on the work.<br />Deliver it. Hand it over.</h2><p>For MSPs, I can work within your project process and coordinate with your delivery team. For small businesses, I can help translate the problem into a practical scope.</p><p>Remote project availability is primarily after 5 p.m. Eastern on weekdays and on weekends. Timelines and cutover windows are agreed before work begins.</p></div>
+    <ol><li><h3>Discovery</h3><p>Review the environment, desired outcome, dependencies, and timeline.</p></li><li><h3>Scope & delivery</h3><p>Agree on deliverables, access requirements, pricing, and validation before implementation.</p></li><li><h3>Handoff</h3><p>Document the changes, explain ongoing administration, and agree on any follow-up support.</p></li></ol>
+  </section>
+  {servicesConfig.acceptingProjects && <section id="inquiry" class="inquiry-section section" aria-labelledby="inquiry-heading">
+    <div><p class="eyebrow">Project inquiry</p><h2 id="inquiry-heading">What do you need help with?</h2><p>Share the goal, current environment, and timing. Please leave out passwords, access tokens, and confidential client data.</p><p>{endpoint ? 'Your inquiry will be delivered through the form provider.' : 'This form prepares an email in your email app. Review and send it there to complete your inquiry.'}</p><p>Prefer email? <a href={`mailto:${servicesConfig.email}`}>{servicesConfig.email}</a></p></div>
+    <form id="project-inquiry" action={endpoint || undefined} method={endpoint ? 'POST' : undefined} data-email={servicesConfig.email} data-delivery={endpoint ? 'endpoint' : 'email'}>
+      <div class="form-row"><label>Your name<input name="name" autocomplete="name" required maxlength="100" /></label><label>Work email<input name="email" type="email" autocomplete="email" required maxlength="254" /></label></div>
+      <label>Organization<input name="organization" autocomplete="organization" required maxlength="150" /></label>
+      <div class="form-row"><label>Organization type<select name="organizationType" required><option value="">Select one</option><option>MSP</option><option>Small or midsize business</option><option>Other</option></select></label><label>Project type<select name="projectType" required><option value="">Select one</option>{services.map(service => <option>{service.title}</option>)}<option>Other / help defining scope</option></select></label></div>
+      <label>Target timeline<input name="timeline" maxlength="150" placeholder="For example: cutover in November" /></label>
+      <label>Project details<textarea name="details" rows="6" required minlength="20" maxlength="5000" placeholder="What outcome are you looking for? Include approximate user or device counts if relevant."></textarea></label>
+      <label class="inquiry-trap" aria-hidden="true">Leave this blank<input name="_gotcha" tabindex="-1" autocomplete="off" /></label>
+      <label class="consent-label"><input type="checkbox" name="contactConsent" required value="yes" /><span>You may contact me about this inquiry using the information I provide.</span></label>
+      <button class="button primary" type="submit">{endpoint ? 'Send inquiry' : 'Prepare email inquiry'}</button>
+      <p id="inquiry-status" role="status" aria-live="polite"></p>
+      <noscript><p>{endpoint ? 'Submit the form to send your inquiry.' : 'Please email your project details using the email link above.'}</p></noscript>
+    </form>
+  </section>}
+</BaseLayout>
+<script>
+  const form = document.querySelector<HTMLFormElement>('#project-inquiry');
+  form?.addEventListener('submit', (event) => {
+    if (form.dataset.delivery !== 'email') return;
+    event.preventDefault();
+    const data = new FormData(form);
+    if (data.get('_gotcha')) return;
+    const labels = [['name', 'Name'], ['email', 'Email'], ['organization', 'Organization'], ['organizationType', 'Organization type'], ['projectType', 'Project type'], ['timeline', 'Timeline'], ['details', 'Details']];
+    const body = labels.map(([key, label]) => `${label}: ${data.get(key) || 'Not specified'}`).join('\n\n');
+    window.location.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent(`Project inquiry: ${data.get('projectType')}`)}&body=${encodeURIComponent(body)}`;
+    const status = document.querySelector('#inquiry-status');
+    if (status) status.textContent = 'Your email app was requested. Review and send the draft to submit your inquiry. If it did not open, use the email link beside this form.';
+  });
+</script>
