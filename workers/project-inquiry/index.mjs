@@ -1,3 +1,4 @@
+import { renderInquiryEmail } from './email.mjs';
 const limits = {name:100,email:254,organization:150,organizationType:80,projectType:100,timeline:150,details:5000};
 export default {
   async fetch(request, env) {
@@ -40,7 +41,7 @@ export default {
       const result=await verify.json();
       if(!result.success || result.action!=='project-inquiry' || !allowed.some(url=>new URL(url).hostname===result.hostname)) return reply(400,'Verification expired or failed. Please try again.');
       const body=Object.keys(limits).map(key=>`${key}: ${data[key] || 'Not specified'}`).join('\n\n');
-      const sent=await fetch('https://api.smtp2go.com/v3/email/send',{method:'POST',headers:{'Content-Type':'application/json','X-Smtp2go-Api-Key':env.SMTP2GO_API_KEY},body:JSON.stringify({sender:env.FROM_EMAIL,to:[env.TO_EMAIL],subject:`Website project inquiry: ${data.projectType}`,text_body:body,custom_headers:[{header:'Reply-To',value:data.email}]}),signal:AbortSignal.timeout(15000)});
+      const sent=await fetch('https://api.smtp2go.com/v3/email/send',{method:'POST',headers:{'Content-Type':'application/json','X-Smtp2go-Api-Key':env.SMTP2GO_API_KEY},body:JSON.stringify({sender:env.FROM_EMAIL,to:[env.TO_EMAIL],subject:`Website project inquiry: ${data.projectType}`,text_body:body,html_body:renderInquiryEmail(data),custom_headers:[{header:'Reply-To',value:data.email}]}),signal:AbortSignal.timeout(15000)});
       if(!sent.ok) return reply(502,'Unable to confirm delivery. Please contact me by email.');
       const receipt=await sent.json();
       if(receipt.data?.succeeded!==1 || receipt.data?.failed>0 || receipt.data?.error) return reply(502,'Unable to confirm delivery. Please contact me by email.');

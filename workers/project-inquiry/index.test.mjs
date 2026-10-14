@@ -15,9 +15,18 @@ test('verifies tokens before sending and fixes recipient and reply-to',async()=>
 const original=globalThis.fetch;let sent;
 try{globalThis.fetch=async(url,opts)=>{if(url.includes('siteverify'))return Response.json({success:true,hostname:'young-systems.com',action:'project-inquiry'});sent=JSON.parse(opts.body);return Response.json({data:{succeeded:1,failed:0}});};
 assert.equal((await worker.fetch(request(),env)).status,200);
+assert.ok(sent.html_body.includes('YOUNG SYSTEMS'));assert.ok(sent.text_body.includes(data.details));
 assert.deepEqual(sent.to,['owner@example.com']);assert.equal(sent.sender,'sender@example.com');assert.equal(sent.custom_headers[0].value,'visitor@example.com');
 globalThis.fetch=async()=>Response.json({success:false});assert.equal((await worker.fetch(request(),env)).status,400);
 globalThis.fetch=async(url)=>url.includes('siteverify')?Response.json({success:true,hostname:'evil.example',action:'project-inquiry'}):assert.fail('Should not send');assert.equal((await worker.fetch(request(),env)).status,400);
 globalThis.fetch=async(url)=>url.includes('siteverify')?Response.json({success:true,hostname:'young-systems.com',action:'project-inquiry'}):Response.json({data:{succeeded:0,failed:1}});assert.equal((await worker.fetch(request(),env)).status,502);
 }finally{globalThis.fetch=original;}
+});
+
+test('HTML escapes submitted content and encodes reply links', async()=>{
+  const {renderInquiryEmail}=await import('./email.mjs');
+  const html=renderInquiryEmail({...data,name:'<img src=x onerror=alert(1)>',organization:'A & B',details:'<script>alert("test")</script>\nNext line',email:'user+tag@example.com'});
+  assert.ok(!html.includes('<script>'));assert.ok(!html.includes('<img src=x'));
+  assert.ok(html.includes('&lt;script&gt;'));assert.ok(html.includes('A &amp; B'));assert.ok(html.includes('<br />Next line'));
+  assert.ok(html.includes('mailto:user%2Btag%40example.com'));
 });
