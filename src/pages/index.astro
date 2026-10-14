@@ -1,4 +1,5 @@
 ---
+import { servicesConfig } from '../data/services';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { getCollection } from 'astro:content';
@@ -31,6 +32,11 @@ const featuredProjects = projects.filter((project) => project.featured).slice(0,
       <p>Identity / Security</p>
     </aside>
   </section>
+
+  {servicesConfig.acceptingProjects && <aside class="services-callout" aria-label="Contract project availability">
+    <div><p class="eyebrow">Contract project work</p><h2>Extra engineering capacity for your next project.</h2><p>Microsoft migrations, automation, and tenant projects for MSPs and small businesses.</p></div>
+    <a class="button" href="/services">Explore services</a>
+  </aside>}
 
   <section class="section">
     <div class="section-heading">

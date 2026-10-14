@@ -23,6 +23,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: withastro/action@v3
+        env:
+          PUBLIC_PROJECT_INQUIRY_ENDPOINT: ${{ vars.PUBLIC_PROJECT_INQUIRY_ENDPOINT }}
+          PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.PUBLIC_TURNSTILE_SITE_KEY }}
         with:
           package-manager: npm@latest
   deploy:
