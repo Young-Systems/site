@@ -20,3 +20,6 @@ secrets.json
 .dev.vars
 .dev.vars.*
 .wrangler/
+
+# Guides
+*_GUIDE.md
