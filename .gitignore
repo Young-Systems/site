@@ -22,4 +22,4 @@ secrets.json
 .wrangler/
 
 # Guides
-*_GUIDE.md
+docs/*_GUIDE.md
