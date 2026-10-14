@@ -2,17 +2,22 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { servicesConfig, services } from '../data/services';
 const endpoint = servicesConfig.inquiryEndpoint.trim();
-if (endpoint && !servicesConfig.turnstileSiteKey) throw new Error('Configure PUBLIC_TURNSTILE_SITE_KEY with the inquiry endpoint.');
+if (servicesConfig.acceptingProjects && endpoint && !servicesConfig.turnstileSiteKey) throw new Error('Configure PUBLIC_TURNSTILE_SITE_KEY with the inquiry endpoint.');
 if (endpoint && !endpoint.startsWith('https://')) throw new Error('Project inquiry endpoint must use HTTPS.');
 ---
-<BaseLayout title="Contract Project Services | Young Systems" description="Microsoft 365 migrations, PowerShell automation, tenant setup, and identity projects for MSPs and small businesses.">
-  <header class="page-header">
+<BaseLayout title={servicesConfig.acceptingProjects ? 'Project Services & Contact | Young Systems' : 'Contact | Young Systems'} description={servicesConfig.acceptingProjects ? 'Microsoft 365 migrations, PowerShell automation, tenant setup, and identity projects for MSPs and small businesses.' : 'Contact Samuel Young about articles, technical collaboration, and systems engineering.'}>
+  {servicesConfig.acceptingProjects ? <header class="page-header">
     <p class="eyebrow">Project services / MSPs & small businesses</p>
     <h1>Your project.<br />My engineering experience.</h1>
     <p>I help MSPs add engineering capacity and small businesses complete Microsoft cloud and automation projects, with a defined scope and a documented handoff.</p>
     {servicesConfig.acceptingProjects ? <div class="actions"><a class="button primary" href="#inquiry">Discuss a project</a><a class="button" href="/projects">Explore my work</a></div> : <p class="availability-note">I am currently unavailable for new contract projects. You can still explore my <a href="/projects">projects</a> and <a href="/blog">articles</a>.</p>}
-  </header>
-  <section class="section" aria-labelledby="services-heading">
+  </header> : <header class="page-header">
+    <p class="eyebrow">Contact</p><h1>Let’s connect.</h1>
+    <p>For questions about my articles or projects, or a conversation about systems engineering and automation, you can reach me by email.</p>
+    <p class="availability-note">I am currently unavailable for new contract projects.</p>
+    <div class="actions"><a class="button primary" href={`mailto:${servicesConfig.email}`}>Email Samuel Young</a><a class="button" href="/blog">Explore articles</a></div>
+  </header>}
+  {servicesConfig.acceptingProjects && <><section class="section" aria-labelledby="services-heading">
     <p class="eyebrow">What I offer</p><h2 id="services-heading">Practical help with a clear outcome.</h2>
     <div class="services-grid">{services.map(service => <article class="service-card"><h3>{service.title}</h3><p>{service.description}</p><p class="service-deliverables"><strong>Typical scope</strong><br />{service.deliverables}</p></article>)}</div>
   </section>
@@ -20,6 +25,7 @@ if (endpoint && !endpoint.startsWith('https://')) throw new Error('Project inqui
     <div><p class="eyebrow">How we work</p><h2 id="process-heading">Agree on the work.<br />Deliver it. Hand it over.</h2><p>For MSPs, I can work within your project process and coordinate with your delivery team. For small businesses, I can help translate the problem into a practical scope.</p><p>Remote project availability is primarily after 5 p.m. Eastern on weekdays and on weekends. Timelines and cutover windows are agreed before work begins.</p></div>
     <ol><li><h3>Discovery</h3><p>Review the environment, desired outcome, dependencies, and timeline.</p></li><li><h3>Scope & delivery</h3><p>Agree on deliverables, access requirements, pricing, and validation before implementation.</p></li><li><h3>Handoff</h3><p>Document the changes, explain ongoing administration, and agree on any follow-up support.</p></li></ol>
   </section>
+  </>}
   {servicesConfig.acceptingProjects && <section id="inquiry" class="inquiry-section section" aria-labelledby="inquiry-heading">
     <div><p class="eyebrow">Project inquiry</p><h2 id="inquiry-heading">What do you need help with?</h2><p>Share the goal, current environment, and timing. Please leave out passwords, access tokens, and confidential client data.</p><p>{endpoint ? 'Use this form to send your inquiry directly.' : 'This form prepares an email in your email app. Review and send it there to complete your inquiry.'}</p><p>Prefer email? <a href={`mailto:${servicesConfig.email}`}>{servicesConfig.email}</a></p></div>
     <form id="project-inquiry" data-endpoint={endpoint} data-email={servicesConfig.email} data-delivery={endpoint ? 'endpoint' : 'email'}>

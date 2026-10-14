@@ -4,7 +4,7 @@ Existing articles and portfolio pages remain intact. `/services` contains the ne
 
 ## Availability
 
-Set `acceptingProjects: false` in `src/data/services.ts` and redeploy the site to hide services promotion and remove the form. Also set the Worker's `ACCEPTING_PROJECTS` variable to `false` and redeploy it to reject direct submissions. Both settings must be changed when closing inquiries.
+Set `acceptingProjects: false` in `src/data/services.ts` and redeploy the site to hide services promotion and remove the form. Contact stays in the navigation and leads to a simple email contact page at `/services` when availability is off. Resources and About Us remain the same in both states. Also set the Worker's `ACCEPTING_PROJECTS` variable to `false` and redeploy it to reject direct submissions. Both settings must be changed when closing inquiries.
 
 ## Configure SMTP2GO
 
