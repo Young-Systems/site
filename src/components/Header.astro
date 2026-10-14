@@ -13,6 +13,7 @@ const groups = [
     <span class="sr-only">Toggle navigation</span><span></span><span></span>
   </button>
   <nav id="site-nav" aria-label="Primary navigation">
+    <a class="nav-home" href="/" aria-current={path === '/' ? 'page' : undefined}>Home</a>
     {groups.map(group => <details class="nav-group">
       <summary class:list={{'is-current': group.links.some(([,href]) => path.startsWith(href))}}>{group.label}<span class="nav-chevron" aria-hidden="true"></span></summary>
       <div class="nav-dropdown">{group.links.map(([label,href]) => <a href={href} aria-current={path.startsWith(href) ? 'page' : undefined}>{label}</a>)}</div>
