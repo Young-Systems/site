@@ -2,8 +2,9 @@
 export const servicesConfig = {
   acceptingProjects: true,
   email: 'samuel@young-systems.com',
-  // Optional HTTPS form delivery endpoint. Empty uses an explicitly labeled email draft.
+  // Worker URL ending in /inquiry. Empty uses an email draft.
   inquiryEndpoint: import.meta.env.PUBLIC_PROJECT_INQUIRY_ENDPOINT || '',
+  turnstileSiteKey: import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '',
 };
 
 export const services = [

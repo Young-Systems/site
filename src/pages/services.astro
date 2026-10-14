@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { servicesConfig, services } from '../data/services';
 const endpoint = servicesConfig.inquiryEndpoint.trim();
+if (endpoint && !servicesConfig.turnstileSiteKey) throw new Error('Configure PUBLIC_TURNSTILE_SITE_KEY with the inquiry endpoint.');
 if (endpoint && !endpoint.startsWith('https://')) throw new Error('Project inquiry endpoint must use HTTPS.');
 ---
 <BaseLayout title="Contract Project Services | Young Systems" description="Microsoft 365 migrations, PowerShell automation, tenant setup, and identity projects for MSPs and small businesses.">
@@ -20,8 +21,8 @@ if (endpoint && !endpoint.startsWith('https://')) throw new Error('Project inqui
     <ol><li><h3>Discovery</h3><p>Review the environment, desired outcome, dependencies, and timeline.</p></li><li><h3>Scope & delivery</h3><p>Agree on deliverables, access requirements, pricing, and validation before implementation.</p></li><li><h3>Handoff</h3><p>Document the changes, explain ongoing administration, and agree on any follow-up support.</p></li></ol>
   </section>
   {servicesConfig.acceptingProjects && <section id="inquiry" class="inquiry-section section" aria-labelledby="inquiry-heading">
-    <div><p class="eyebrow">Project inquiry</p><h2 id="inquiry-heading">What do you need help with?</h2><p>Share the goal, current environment, and timing. Please leave out passwords, access tokens, and confidential client data.</p><p>{endpoint ? 'Your inquiry will be delivered through the form provider.' : 'This form prepares an email in your email app. Review and send it there to complete your inquiry.'}</p><p>Prefer email? <a href={`mailto:${servicesConfig.email}`}>{servicesConfig.email}</a></p></div>
-    <form id="project-inquiry" action={endpoint || undefined} method={endpoint ? 'POST' : undefined} data-email={servicesConfig.email} data-delivery={endpoint ? 'endpoint' : 'email'}>
+    <div><p class="eyebrow">Project inquiry</p><h2 id="inquiry-heading">What do you need help with?</h2><p>Share the goal, current environment, and timing. Please leave out passwords, access tokens, and confidential client data.</p><p>{endpoint ? 'Use this form to send your inquiry directly.' : 'This form prepares an email in your email app. Review and send it there to complete your inquiry.'}</p><p>Prefer email? <a href={`mailto:${servicesConfig.email}`}>{servicesConfig.email}</a></p></div>
+    <form id="project-inquiry" data-endpoint={endpoint} data-email={servicesConfig.email} data-delivery={endpoint ? 'endpoint' : 'email'}>
       <div class="form-row"><label>Your name<input name="name" autocomplete="name" required maxlength="100" /></label><label>Work email<input name="email" type="email" autocomplete="email" required maxlength="254" /></label></div>
       <label>Organization<input name="organization" autocomplete="organization" required maxlength="150" /></label>
       <div class="form-row"><label>Organization type<select name="organizationType" required><option value="">Select one</option><option>MSP</option><option>Small or midsize business</option><option>Other</option></select></label><label>Project type<select name="projectType" required><option value="">Select one</option>{services.map(service => <option>{service.title}</option>)}<option>Other / help defining scope</option></select></label></div>
@@ -29,19 +30,42 @@ if (endpoint && !endpoint.startsWith('https://')) throw new Error('Project inqui
       <label>Project details<textarea name="details" rows="6" required minlength="20" maxlength="5000" placeholder="What outcome are you looking for? Include approximate user or device counts if relevant."></textarea></label>
       <label class="inquiry-trap" aria-hidden="true">Leave this blank<input name="_gotcha" tabindex="-1" autocomplete="off" /></label>
       <label class="consent-label"><input type="checkbox" name="contactConsent" required value="yes" /><span>You may contact me about this inquiry using the information I provide.</span></label>
+      {endpoint && <div class="cf-turnstile" data-sitekey={servicesConfig.turnstileSiteKey} data-action="project-inquiry" data-theme="dark" data-size="flexible"></div>}
       <button class="button primary" type="submit">{endpoint ? 'Send inquiry' : 'Prepare email inquiry'}</button>
       <p id="inquiry-status" role="status" aria-live="polite"></p>
-      <noscript><p>{endpoint ? 'Submit the form to send your inquiry.' : 'Please email your project details using the email link above.'}</p></noscript>
+      <noscript><p>{endpoint ? 'Enable JavaScript to use this form, or use the email link above.' : 'Please email your project details using the email link above.'}</p></noscript>
     </form>
   </section>}
+  {endpoint && servicesConfig.acceptingProjects && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
 </BaseLayout>
 <script>
   const form = document.querySelector<HTMLFormElement>('#project-inquiry');
-  form?.addEventListener('submit', (event) => {
-    if (form.dataset.delivery !== 'email') return;
+  form?.addEventListener('submit', async (event) => {
     event.preventDefault();
     const data = new FormData(form);
     if (data.get('_gotcha')) return;
+    if (form.dataset.delivery === 'endpoint') {
+      const status = document.querySelector('#inquiry-status');
+      const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+      if (!data.get('cf-turnstile-response')) {
+        if (status) status.textContent = 'Complete the verification before sending.';
+        return;
+      }
+      if (button) button.disabled = true;
+      if (status) status.textContent = 'Sending your inquiry…';
+      try {
+        const response = await fetch(form.dataset.endpoint!, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(Object.fromEntries(data)), signal:AbortSignal.timeout(25000)});
+        const result = await response.json();
+        if (status) status.textContent = typeof result.message === 'string' ? result.message : 'Unable to confirm delivery. Please use the email link.';
+        if (response.ok) form.reset();
+      } catch {
+        if (status) status.textContent = 'Unable to confirm delivery. Your message is still here. Please use the email link or try again later.';
+      } finally {
+        if (button) button.disabled = false;
+        (window as Window & {turnstile?: {reset: () => void}}).turnstile?.reset();
+      }
+      return;
+    }
     const labels = [['name', 'Name'], ['email', 'Email'], ['organization', 'Organization'], ['organizationType', 'Organization type'], ['projectType', 'Project type'], ['timeline', 'Timeline'], ['details', 'Details']];
     const body = labels.map(([key, label]) => `${label}: ${data.get(key) || 'Not specified'}`).join('\n\n');
     window.location.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent(`Project inquiry: ${data.get('projectType')}`)}&body=${encodeURIComponent(body)}`;

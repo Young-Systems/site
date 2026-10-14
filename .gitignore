@@ -15,3 +15,8 @@ dist/
 *.jks
 credentials.json
 secrets.json
+
+# Local Worker secrets
+.dev.vars
+.dev.vars.*
+.wrangler/
