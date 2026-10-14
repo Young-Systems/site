@@ -4,10 +4,10 @@
   "main": "index.mjs",
   "compatibility_date": "2026-10-14",
   "vars": {
-    "ALLOWED_ORIGINS": "https://young-systems.com,https://www.young-systems.com",
+    "ALLOWED_ORIGINS": "https://young-systems.com,https://www.young-systems.com,http://localhost:4321",
     "ACCEPTING_PROJECTS": "true",
-    "FROM_EMAIL": "samuel@young-systems.com",
-    "TO_EMAIL": "samuel@young-systems.com"
+    "FROM_EMAIL": "inquiry@young-systems.com",
+    "TO_EMAIL": "info@young-systems.com"
   },
   "ratelimits": [{
     "name": "INQUIRY_RATE_LIMITER",
