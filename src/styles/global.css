@@ -370,7 +370,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .writing-item:hover h3 { color: var(--accent-light); }
 .writing-item > div { min-width: 0; }
 .profile-sidebar { display: flex; flex-direction: column; align-items: flex-start; gap: 1.25rem; }
-.profile-sidebar .about-portrait { display: block; margin: 0; max-width: 100%; height: auto; }
+.profile-sidebar .about-portrait { display: block; width: 280px; margin: 0; max-width: 100%; height: auto; }
 .partnership-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .partnership-note { margin: 1.5rem 0 0; max-width: 48rem; color: var(--muted); }
 .partnership-section { scroll-margin-top: 2rem; }
