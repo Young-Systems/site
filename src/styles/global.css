@@ -380,3 +380,13 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 @media (max-width: 580px) {
   .partnership-grid { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* About copy flows around the portrait, then fills the space below it. */
+.about-content { display: flow-root; }
+.about-content .profile-sidebar { float: left; width: 280px; max-width: 100%; margin: 0 2.5rem 1.5rem 0; }
+.about-content .content-body { max-width: none; }
+.about-content .principles { clear: both; padding-top: 1rem; }
+@media (max-width: 700px) {
+  .about-content .profile-sidebar { float: none; margin: 0 0 2rem; }
+  .about-content .principles { padding-top: 0; }
+}
