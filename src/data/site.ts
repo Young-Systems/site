@@ -10,3 +10,8 @@ export const isBusiness = siteMode === 'business';
 export const siteDescription = isBusiness
   ? 'Young Systems provides migrations, automation, cloud, identity, systems administration, and integrations for MSPs and businesses.'
   : 'Systems engineering, Microsoft cloud, infrastructure, and practical automation by Samuel Young.';
+
+export const socialLinks = {
+  companyLinkedIn: 'https://linkedin.com/company/young-systems',
+  personalLinkedIn: 'https://www.linkedin.com/in/cyber-syoung/',
+};

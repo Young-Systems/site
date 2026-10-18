@@ -393,3 +393,14 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 @media (max-width: 700px) {
   .about-content { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
 }
+
+.footer-links { flex-wrap: wrap; align-content: start; }
+.founder-link { text-transform: none; letter-spacing: normal; color: var(--accent-light); font: 500 .85rem var(--sans); text-underline-offset: .25em; }
+.company-social { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 1.75rem; padding: 2rem; margin-bottom: 5rem; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.company-social img { width: 88px; height: 88px; object-fit: contain; }
+.company-social .eyebrow { margin-bottom: .75rem; }
+.company-social h2 { margin-bottom: .8rem; font-size: clamp(1.5rem, 3vw, 2rem); }
+.company-social p:not(.eyebrow) { max-width: 48rem; margin: 0 0 1.25rem; color: var(--muted); }
+@media (max-width: 580px) {
+  .company-social { grid-template-columns: minmax(0, 1fr); padding: 1.25rem; }
+}

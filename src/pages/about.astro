@@ -1,14 +1,14 @@
 ---
-import { isBusiness } from '../data/site';
+import { isBusiness, socialLinks } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 // Edit this line to change the statement above the profile introduction.
-const profileQuote = 'Sometimes the best solution, is the one that is built from the ground up. And documented from the start.';
+const profileQuote = 'Build it to work. Document it to last.';
 ---
 
 <BaseLayout title="About | Young Systems" description="About Young Systems and Samuel Young, focused on systems engineering, identity, and automation.">
   <header class="page-header"><p class="eyebrow">About</p><h1>Engineering with an operator’s perspective.</h1><p>{isBusiness ? 'Young Systems is an independent engineering business founded by Samuel Young, supporting MSPs and businesses across Microsoft cloud, infrastructure, identity, and automation.' : 'I’m Samuel Young, a systems engineer focused on Microsoft cloud, infrastructure, identity, and automation.'}</p></header>
   <div class="content-split about-content">
-    <aside class="profile-sidebar"><span>Samuel Young / Founder</span><img class="about-portrait" src="/images/profile/samuel-young-professional.jpg" alt="Samuel Young, founder of Young Systems" width="280" height="280" /></aside>
+    <aside class="profile-sidebar"><span>Samuel Young / Founder</span><img class="about-portrait" src="/images/profile/samuel-young-professional.jpg" alt="Samuel Young, founder of Young Systems" width="280" height="280" /><a class="founder-link" href={socialLinks.personalLinkedIn} target="_blank" rel="noopener noreferrer">Samuel on LinkedIn ↗</a></aside>
     <div class="content-body">
       <blockquote class="profile-quote"><p>{profileQuote}</p></blockquote>
       <h2>I care about what happens after deployment.</h2>
@@ -25,4 +25,8 @@ const profileQuote = 'Sometimes the best solution, is the one that is built from
         <div class="principle"><span>03</span><div><h3>Design for ownership</h3><p>The person operating a system tomorrow matters as much as the person implementing it today.</p></div></div>
     </div>
   </div>
+  {isBusiness && <section class="company-social" aria-labelledby="company-linkedin-heading">
+    <img src="/images/brand/square-logo.png" alt="Young Systems logo" width="88" height="88" loading="lazy" />
+    <div><p class="eyebrow">Connect with Young Systems</p><h2 id="company-linkedin-heading">Follow the business on LinkedIn.</h2><p>Systems engineering for MSPs and businesses. Migrations, automation, cloud, and identity under your brand or ours.</p><a class="button" href={socialLinks.companyLinkedIn} target="_blank" rel="noopener noreferrer">Follow Young Systems ↗</a></div>
+  </section>}
 </BaseLayout>
