@@ -1,4 +1,6 @@
 ---
+import { isBusiness } from '../data/site';
+if (isBusiness) return Astro.redirect('/services');
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
@@ -19,7 +21,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="contact-card-copy">
         <span class="contact-card-label">Email</span>
         <h2>samuel@young-systems.com</h2>
-        <p>Send a message about technical collaboration, something published here, or an infrastructure and automation project.</p>
+        <p>Send a message about technical collaboration, something published here, or systems engineering.</p>
         <span class="contact-card-link">Write an email <span aria-hidden="true">→</span></span>
       </div>
     </a>

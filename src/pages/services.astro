@@ -5,12 +5,12 @@ const endpoint = servicesConfig.inquiryEndpoint.trim();
 if (servicesConfig.acceptingProjects && endpoint && !servicesConfig.turnstileSiteKey) throw new Error('Configure PUBLIC_TURNSTILE_SITE_KEY with the inquiry endpoint.');
 if (endpoint && !endpoint.startsWith('https://')) throw new Error('Project inquiry endpoint must use HTTPS.');
 ---
-<BaseLayout title={servicesConfig.acceptingProjects ? 'Project Services & Contact | Young Systems' : 'Contact | Young Systems'} description={servicesConfig.acceptingProjects ? 'Microsoft 365 migrations, PowerShell automation, tenant setup, and identity projects for MSPs and small businesses.' : 'Contact Samuel Young about articles, technical collaboration, and systems engineering.'}>
+<BaseLayout title={servicesConfig.acceptingProjects ? 'Project Services & Contact | Young Systems' : 'Contact | Young Systems'} description={servicesConfig.acceptingProjects ? 'Migrations, automation, cloud, Entra ID, systems administration, integrations, and MSP tooling for MSPs and businesses.' : 'Contact Samuel Young about articles, technical collaboration, and systems engineering.'}>
   {servicesConfig.acceptingProjects ? <header class="page-header">
-    <p class="eyebrow">Project services / MSPs & small businesses</p>
-    <h1>Your project.<br />My engineering experience.</h1>
-    <p>I help MSPs add engineering capacity and small businesses complete Microsoft cloud and automation projects, with a defined scope and a documented handoff.</p>
-    {servicesConfig.acceptingProjects ? <div class="actions"><a class="button primary" href="#inquiry">Discuss a project</a><a class="button" href="/projects">Explore my work</a></div> : <p class="availability-note">I am currently unavailable for new contract projects. You can still explore my <a href="/projects">projects</a> and <a href="/blog">articles</a>.</p>}
+    <p class="eyebrow">Project services / MSPs & businesses</p>
+    <h1>Engineering support.<br />From scope to handoff.</h1>
+    <p>Young Systems helps MSPs expand their delivery capacity and businesses complete migrations, automation, cloud, identity, and integration projects. Work directly with an engineer, with a defined scope and a documented handoff.</p>
+    {servicesConfig.acceptingProjects ? <div class="actions"><a class="button primary" href="#inquiry">Discuss a project</a><a class="button" href="/projects">Explore projects</a></div> : <p class="availability-note">I am currently unavailable for new contract projects. You can still explore my <a href="/projects">projects</a> and <a href="/blog">articles</a>.</p>}
   </header> : <header class="page-header">
     <p class="eyebrow">Contact</p><h1>Let’s connect.</h1>
     <p>For questions about my articles or projects, or a conversation about systems engineering and automation, you can reach me by email.</p>
@@ -22,7 +22,7 @@ if (endpoint && !endpoint.startsWith('https://')) throw new Error('Project inqui
     <div class="services-grid">{services.map(service => <article class="service-card"><h3>{service.title}</h3><p>{service.description}</p><p class="service-deliverables"><strong>Typical scope</strong><br />{service.deliverables}</p></article>)}</div>
   </section>
   <section class="service-process section" aria-labelledby="process-heading">
-    <div><p class="eyebrow">How we work</p><h2 id="process-heading">Agree on the work.<br />Deliver it. Hand it over.</h2><p>For MSPs, I can work within your project process and coordinate with your delivery team. For small businesses, I can help translate the problem into a practical scope.</p><p>Project work is subject to availability. Timelines and cutover windows are agreed before work begins.</p></div>
+    <div><p class="eyebrow">How we work</p><h2 id="process-heading">Agree on the work.<br />Deliver it. Hand it over.</h2><p>For MSPs, I can work within your project process and coordinate with your delivery team. For businesses, I can help translate the problem into a practical scope.</p><p>Project work is subject to availability. Timelines and cutover windows are agreed before work begins.</p></div>
     <ol><li><h3>Discovery</h3><p>Review the environment, desired outcome, dependencies, and timeline.</p></li><li><h3>Scope & delivery</h3><p>Agree on deliverables, access requirements, pricing, and validation before implementation.</p></li><li><h3>Handoff</h3><p>Document the changes, explain ongoing administration, and agree on any follow-up support.</p></li></ol>
   </section>
   </>}
