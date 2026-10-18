@@ -360,3 +360,23 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   .hero { padding-top: 3.5rem; }
   .brand-logo { max-width: 190px; }
 }
+
+/* Keep section introductions readable alongside long article titles. */
+.latest-articles .section-heading { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+.latest-articles .section-heading > p { margin: 0; max-width: 48rem; }
+.latest-articles .section-heading h2 { max-width: none; }
+.latest-articles .writing-item { grid-template-columns: 220px minmax(0, 1fr) auto; align-items: baseline; }
+.writing-item h3 { margin: 0 0 .6rem; font-size: 1.45rem; transition: color .2s; }
+.writing-item:hover h3 { color: var(--accent-light); }
+.writing-item > div { min-width: 0; }
+.profile-sidebar { display: flex; flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+.profile-sidebar .about-portrait { display: block; margin: 0; max-width: 100%; height: auto; }
+.partnership-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.partnership-note { margin: 1.5rem 0 0; max-width: 48rem; color: var(--muted); }
+.partnership-section { scroll-margin-top: 2rem; }
+@media (max-width: 850px) {
+  .latest-articles .writing-item { grid-template-columns: minmax(0, 1fr) auto; }
+}
+@media (max-width: 580px) {
+  .partnership-grid { grid-template-columns: minmax(0, 1fr); }
+}

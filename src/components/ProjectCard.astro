@@ -2,10 +2,11 @@
 import type { Project } from '../data/projects';
 const { project } = Astro.props as { project: Project };
 const { title, description, tags, status, href } = project;
+const external = href && /^https?:\/\//i.test(href) && new URL(href).origin !== Astro.site?.origin;
 const Element = href ? 'a' : 'article';
 ---
 
-<Element class="project-card" {...(href ? { href } : {})}>
+<Element class="project-card" {...(href ? { href } : {})} {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
   <div class="project-meta"><span>{status}</span><span aria-hidden="true">/</span><span>{tags[0]}</span></div>
   <h3>{title}</h3>
   <p>{description}</p>

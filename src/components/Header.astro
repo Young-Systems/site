@@ -2,7 +2,7 @@
 import { isBusiness } from '../data/site';
 const path = Astro.url.pathname;
 const groups = [
-  { label: 'Resources', links: [['Articles', '/blog'], ['Projects', '/projects']] },
+  { label: 'Resources', links: isBusiness ? [['Articles', '/blog']] : [['Articles', '/blog'], ['Projects', '/projects']] },
   { label: isBusiness ? 'About Us' : 'About Me', links: [[isBusiness ? 'Young Systems' : 'My Profile', '/about'], ['Certifications', '/certifications']] },
 ];
 ---

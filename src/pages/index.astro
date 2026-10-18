@@ -41,10 +41,10 @@ const featuredProjects = projects.filter((project) => project.featured).slice(0,
       <div class="services-grid">{services.map((service, index) => <article class="service-card"><span class="service-number">{String(index + 1).padStart(2, '0')}</span><h3>{service.title}</h3><p>{service.description}</p></article>)}</div>
       <div class="actions"><a class="button" href="/services">Service details & project inquiries →</a></div>
     </section>
-    <section class="services-callout" aria-label="MSP partnerships"><div><p class="eyebrow">An extension of your delivery team</p><h2>Your client relationship. Additional engineering support.</h2><p>Coordinate delivery through your project process, agree on client communication, and hand over the documentation your team needs to support the result.</p></div><a class="button" href="/services#inquiry">Discuss a partnership</a></section>
+    <section class="services-callout" aria-label="MSP partnerships"><div><p class="eyebrow">An extension of your delivery team</p><h2>White glove service. White label delivery.</h2><p>Offer attentive project delivery under your own brand. Young Systems works within your delivery process, follows your agreed client communication standards, and prepares documentation for your team to own. You retain the client relationship.</p></div><a class="button" href="/services#inquiry">Discuss a partnership</a></section>
   </>}
 
-  <section class="section">
+  {!isBusiness && <section class="section">
     <div class="section-heading">
       <div><p class="eyebrow">Selected work</p><h2>Built from real operational problems.</h2></div>
       <p>Practical work across Microsoft cloud, networking, self-hosted infrastructure, and automation.</p>
@@ -53,7 +53,7 @@ const featuredProjects = projects.filter((project) => project.featured).slice(0,
       {featuredProjects.map((project) => <ProjectCard project={project} />)}
     </div>
     <div class="actions"><a class="button" href="/projects">View all projects →</a></div>
-  </section>
+  </section>}
 
   <section class="section">
     <div class="section-heading">
@@ -67,7 +67,7 @@ const featuredProjects = projects.filter((project) => project.featured).slice(0,
     </div>
   </section>
 
-  {posts.length > 0 && <section class="section">
+  {posts.length > 0 && <section class="section latest-articles">
     <div class="section-heading">
       <div><p class="eyebrow">Latest articles</p><h2>Guides and lessons learned.</h2></div>
       <p>Implementation notes and lessons learned from real systems.</p>
@@ -75,7 +75,7 @@ const featuredProjects = projects.filter((project) => project.featured).slice(0,
     <div class="writing-list">
       {posts.map((post) => <a class="writing-item" href={`/blog/${post.id}/`}>
         <time datetime={getPublicationDate(post).toISOString()}>{formatEasternDateTime(getPublicationDate(post))}</time>
-        <div><h2>{post.data.title}</h2><p>{post.data.description}</p></div><span class="arrow" aria-hidden="true">↗</span>
+        <div><h3>{post.data.title}</h3><p>{post.data.description}</p></div><span class="arrow" aria-hidden="true">↗</span>
       </a>)}
     </div>
   </section>}

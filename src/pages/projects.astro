@@ -1,4 +1,6 @@
 ---
+import { isBusiness } from '../data/site';
+if (isBusiness) return Astro.redirect('/services');
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { projects } from '../data/projects';

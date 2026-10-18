@@ -10,7 +10,7 @@ if (endpoint && !endpoint.startsWith('https://')) throw new Error('Project inqui
     <p class="eyebrow">Project services / MSPs & businesses</p>
     <h1>Engineering support.<br />From scope to handoff.</h1>
     <p>Young Systems helps MSPs expand their delivery capacity and businesses complete migrations, automation, cloud, identity, and integration projects. Work directly with an engineer, with a defined scope and a documented handoff.</p>
-    {servicesConfig.acceptingProjects ? <div class="actions"><a class="button primary" href="#inquiry">Discuss a project</a><a class="button" href="/projects">Explore projects</a></div> : <p class="availability-note">I am currently unavailable for new contract projects. You can still explore my <a href="/projects">projects</a> and <a href="/blog">articles</a>.</p>}
+    <div class="actions"><a class="button primary" href="#inquiry">Discuss a project</a><a class="button" href="#partnership">MSP partnerships</a></div>
   </header> : <header class="page-header">
     <p class="eyebrow">Contact</p><h1>Let’s connect.</h1>
     <p>For questions about my articles or projects, or a conversation about systems engineering and automation, you can reach me by email.</p>
@@ -20,6 +20,14 @@ if (endpoint && !endpoint.startsWith('https://')) throw new Error('Project inqui
   {servicesConfig.acceptingProjects && <><section class="section" aria-labelledby="services-heading">
     <p class="eyebrow">What I offer</p><h2 id="services-heading">Practical help with a clear outcome.</h2>
     <div class="services-grid">{services.map(service => <article class="service-card"><h3>{service.title}</h3><p>{service.description}</p><p class="service-deliverables"><strong>Typical scope</strong><br />{service.deliverables}</p></article>)}</div>
+  </section>
+  <section id="partnership" class="section partnership-section" aria-labelledby="partnership-heading">
+    <div class="section-heading"><div><p class="eyebrow">For MSP partners</p><h2 id="partnership-heading">White glove service.<br />White label delivery.</h2></div><p>Your brand, your client relationship, with Young Systems supporting delivery behind the scenes. Agree on how I represent your business before work starts, from client meetings and status updates to documentation and handoff.</p></div>
+    <div class="partnership-grid">
+      <article class="service-card"><h3>Represent your team</h3><p>Work under your name using agreed communication channels, escalation paths, and project processes. You stay in control of the client relationship.</p></article>
+      <article class="service-card"><h3>Care for the details</h3><p>Plan changes around the client’s needs, communicate progress clearly, validate the outcome, and leave documentation in your preferred format.</p></article>
+    </div>
+    <p class="partnership-note">Working directly with a business? The same attention to planning, communication, and handoff applies to direct engagements.</p>
   </section>
   <section class="service-process section" aria-labelledby="process-heading">
     <div><p class="eyebrow">How we work</p><h2 id="process-heading">Agree on the work.<br />Deliver it. Hand it over.</h2><p>For MSPs, I can work within your project process and coordinate with your delivery team. For businesses, I can help translate the problem into a practical scope.</p><p>Project work is subject to availability. Timelines and cutover windows are agreed before work begins.</p></div>
