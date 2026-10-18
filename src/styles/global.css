@@ -381,12 +381,15 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   .partnership-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
-/* About copy flows around the portrait, then fills the space below it. */
-.about-content { display: flow-root; }
-.about-content .profile-sidebar { float: left; width: 280px; max-width: 100%; margin: 0 2.5rem 1.5rem 0; }
-.about-content .content-body { max-width: none; }
-.about-content .principles { clear: both; padding-top: 1rem; }
+/* Keep profile copy beside the portrait and subsequent sections full width. */
+.about-content { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 2.5rem; align-items: start; }
+.about-content .profile-sidebar { width: 280px; max-width: 100%; margin: 0; }
+.about-content .content-body { min-width: 0; max-width: none; }
+.about-content .about-story, .about-content .principles { grid-column: 1 / -1; }
+.about-content .principles { margin-top: 0; }
+.about-content .content-body > h2 { margin-top: 0; }
+.profile-quote { margin: 0 0 2rem; padding: .25rem 0 .25rem 1.25rem; border-left: 3px solid var(--accent); }
+.profile-quote p { margin: 0; color: var(--accent-light); font-size: clamp(1.2rem, 2vw, 1.6rem); line-height: 1.5; }
 @media (max-width: 700px) {
-  .about-content .profile-sidebar { float: none; margin: 0 0 2rem; }
-  .about-content .principles { padding-top: 0; }
+  .about-content { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
 }

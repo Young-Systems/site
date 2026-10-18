@@ -1,6 +1,8 @@
 ---
 import { isBusiness } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
+// Edit this line to change the statement above the profile introduction.
+const profileQuote = 'Build it to work. Document it to last.';
 ---
 
 <BaseLayout title="About | Young Systems" description="About Young Systems and Samuel Young, focused on systems engineering, identity, and automation.">
@@ -8,16 +10,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="content-split about-content">
     <aside class="profile-sidebar"><span>Samuel Young / Founder</span><img class="about-portrait" src="/images/profile/samuel-young-professional.jpg" alt="Samuel Young, founder of Young Systems" width="280" height="280" /></aside>
     <div class="content-body">
+      <blockquote class="profile-quote"><p>{profileQuote}</p></blockquote>
       <h2>I care about what happens after deployment.</h2>
       <p>Good infrastructure should be understandable, supportable, secure, and easier to operate six months after deployment. My work sits between architecture and day-to-day operations.</p>
       <p>I work across Microsoft 365, migrations, identity, compliance, and integration. My homelab extends that work into virtualization, networking, containers, storage, and identity-aware access.</p>
+    </div>
+    <div class="content-body about-story">
       <h2>Why Young Systems exists</h2>
       <p>{isBusiness ? 'Young Systems helps delivery teams and businesses complete technical projects with clear ownership, practical implementation, and a documented handoff. You work directly with Samuel, from understanding the environment through validating the result. For MSP partners, delivery can take place under your brand, with attentive communication, documentation in your preferred format, and clear ownership of the client relationship. Articles share the technical thinking behind that work.' : 'This site is my working technical record: a place to publish useful automation, document infrastructure projects, and explain decisions with enough context to help another engineer.'}</p>
-      <div class="principles">
+    </div>
+    <div class="principles">
         <div class="principle"><span>01</span><div><h3>Make it repeatable</h3><p>Manual work is sometimes necessary. Unexplained manual work should not become the permanent process.</p></div></div>
         <div class="principle"><span>02</span><div><h3>Document the why</h3><p>A command explains what changed. Good documentation preserves the reasoning and constraints behind it.</p></div></div>
         <div class="principle"><span>03</span><div><h3>Design for ownership</h3><p>The person operating a system tomorrow matters as much as the person implementing it today.</p></div></div>
-      </div>
     </div>
   </div>
 </BaseLayout>
