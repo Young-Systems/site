@@ -1,8 +1,9 @@
 ---
+import { isBusiness } from '../data/site';
 const path = Astro.url.pathname;
 const groups = [
-  { label: 'Resources', links: [['Articles', '/blog'], ['Projects', '/projects']] },
-  { label: 'About Me', links: [['My Profile', '/about'], ['My Certifications', '/certifications']] },
+  { label: 'Resources', links: isBusiness ? [['Articles', '/blog']] : [['Articles', '/blog'], ['Projects', '/projects']] },
+  { label: isBusiness ? 'About Us' : 'About Me', links: [[isBusiness ? 'Young Systems' : 'My Profile', '/about'], ['Certifications', '/certifications']] },
 ];
 ---
 <header class="site-header">
@@ -14,11 +15,12 @@ const groups = [
   </button>
   <nav id="site-nav" aria-label="Primary navigation">
     <a class="nav-home" href="/" aria-current={path === '/' ? 'page' : undefined}>Home</a>
+    {isBusiness && <a href="/services" aria-current={path.startsWith('/services') ? 'page' : undefined}>Services</a>}
     {groups.map(group => <details class="nav-group">
       <summary class:list={{'is-current': group.links.some(([,href]) => path.startsWith(href))}}>{group.label}<span class="nav-chevron" aria-hidden="true"></span></summary>
       <div class="nav-dropdown">{group.links.map(([label,href]) => <a href={href} aria-current={path.startsWith(href) ? 'page' : undefined}>{label}</a>)}</div>
     </details>)}
-    <a class="nav-contact" href="/services" aria-current={path.startsWith('/services') ? 'page' : undefined}>Contact</a>
+    <a class="nav-contact" href={isBusiness ? "/services#inquiry" : "/contact"} aria-current={path.startsWith('/contact') ? 'page' : undefined}>{isBusiness ? "Discuss a project" : "Contact"}</a>
   </nav>
 </header>
 <script>

@@ -14,7 +14,7 @@ const { certification } = Astro.props as { certification: Certification };
     </p>
     {certification.credentialId && <p class="credential-id">Credential ID {certification.credentialId}</p>}
     {certification.credentialUrl && (
-      <a class="credential-link" href={certification.credentialUrl} target="_blank" rel="noreferrer">
+      <a class="credential-link" href={certification.credentialUrl} target="_blank" rel="noopener noreferrer">
         Show credential <span aria-hidden="true">↗</span>
       </a>
     )}

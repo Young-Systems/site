@@ -1,6 +1,8 @@
-// Change to false and redeploy to remove services promotion and close inquiries.
+import { isBusiness } from './site';
+
+// Service visibility and inquiries follow the owner-controlled site mode.
 export const servicesConfig = {
-  acceptingProjects: true,
+  acceptingProjects: isBusiness,
   email: 'samuel@young-systems.com',
   // Worker URL ending in /inquiry. Empty uses an email draft.
   inquiryEndpoint: import.meta.env.PUBLIC_PROJECT_INQUIRY_ENDPOINT || '',
@@ -8,8 +10,12 @@ export const servicesConfig = {
 };
 
 export const services = [
-  { title: 'Microsoft 365 migrations', description: 'Project support for mailbox, SharePoint, OneDrive, and tenant migrations.', deliverables: 'Discovery, migration planning, staging, cutover support, and handoff documentation.' },
-  { title: 'Automation as a Service', description: 'PowerShell and Microsoft Graph automation for repetitive administrative work.', deliverables: 'Workflow discovery, scripts, reporting, documentation, and scoped maintenance arrangements.' },
-  { title: 'Microsoft tenant setup & management', description: 'Build, organize, or improve a Microsoft 365 environment around your business requirements.', deliverables: 'Exchange Online, SharePoint permissions, shared mailboxes, licensing review, and administrative processes.' },
-  { title: 'Identity & endpoint projects', description: 'Hands-on support for Entra ID, hybrid identity, and Intune initiatives.', deliverables: 'Conditional Access, MFA, identity synchronization, device enrollment, and configuration documentation.' },
+  { title: 'Migrations', description: 'Move users, data, and infrastructure with a plan that accounts for the people using them.', deliverables: 'Microsoft 365 tenant, mailbox, SharePoint, and OneDrive migrations; discovery, staging, cutover, validation, and handoff.' },
+  { title: 'Automation as a Service', description: 'Reduce repetitive administration with automation built around your operating processes.', deliverables: 'PowerShell and Microsoft Graph workflows, scheduled reporting, error handling, documentation, and scoped ongoing maintenance.' },
+  { title: 'Cloud & systems administration', description: 'Build, improve, and administer the cloud and on-premises systems your business depends on.', deliverables: 'Microsoft 365, Exchange Online, SharePoint, Windows Server, Active Directory, Group Policy, hybrid infrastructure, and operational documentation.' },
+  { title: 'Entra ID & identity security', description: 'Give the right people the right access and strengthen the controls around it.', deliverables: 'Conditional Access, MFA, role and privilege reviews, hybrid identity synchronization, and identity governance configuration.' },
+  { title: 'Intune deployment & endpoint management', description: 'Deploy Microsoft Intune with a consistent approach to device enrollment, configuration, and ongoing administration.', deliverables: 'Enrollment planning, Windows Autopilot, configuration and compliance policies, application deployment, pilot validation, and administrator handoff.' },
+  { title: 'Integrations & identity lifecycle', description: 'Connect systems so onboarding, changes, and offboarding follow a consistent process.', deliverables: 'Automated identity lifecycle workflows, API integrations, provisioning, deprovisioning, validation, and support documentation.' },
+  { title: 'Autotask, Datto RMM & IT Glue', description: 'Make your MSP tooling work together and fit the way your team delivers service.', deliverables: 'Autotask workflow configuration, Datto RMM automation and scripts, IT Glue documentation, and integrations between operational tools.' },
+  { title: 'Assessments & project planning', description: 'Turn an unclear infrastructure problem into an actionable project plan before making changes.', deliverables: 'Environment discovery, dependency mapping, configuration reviews, migration readiness, implementation plans, and handoff requirements.' },
 ];

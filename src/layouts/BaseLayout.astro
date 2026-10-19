@@ -1,4 +1,5 @@
 ---
+import { siteDescription, isBusiness } from '../data/site';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
@@ -8,8 +9,8 @@ interface Props {
   description?: string;
 }
 const {
-  title = 'Young Systems | Systems Engineering & Automation',
-  description = 'Systems engineering, Microsoft cloud, infrastructure, and practical automation by Samuel Young.',
+  title = isBusiness ? 'Young Systems | Engineering for MSPs & Businesses' : 'Young Systems | Systems Engineering & Automation',
+  description = siteDescription,
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -20,7 +21,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#0b0c0f" />
+    <meta name="theme-color" content="#090e16" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/png" href="/favicon-v2.png" />
     <link rel="apple-touch-icon" href="/favicon-v2.png" />
@@ -31,7 +32,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:card" content="summary" />
     <title>{title}</title>
   </head>
-  <body>
+  <body data-site-mode={isBusiness ? 'business' : 'portfolio'}>
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="shell">
       <Header />
