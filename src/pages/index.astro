@@ -1,5 +1,5 @@
 ---
-import { isBusiness } from '../data/site';
+import { isBusiness, isLimitedAvailability, availabilityMessage } from '../data/site';
 import { services, servicesConfig } from '../data/services';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
@@ -19,7 +19,8 @@ const featuredProjects = projects.filter((project) => project.featured).slice(0,
     <div>
       <p class="eyebrow">{isBusiness ? 'Young Systems / Independent systems engineering' : 'Samuel Young / Systems Engineer'}</p>
       <h1>Infrastructure that works. <span>Automation that lasts.</span></h1>
-      <p class="hero-copy">{isBusiness ? 'Engineering support for MSPs and businesses. From migrations and identity to automation and integrations, Young Systems helps turn a defined scope into a working, documented solution.' : 'Projects and articles on Microsoft cloud, infrastructure, identity, and automation.'}</p>
+      <p class="hero-copy">{isLimitedAvailability ? 'Scoped engineering support for MSPs and businesses, primarily after work and on weekends. Plan migrations, identity improvements, automation, and integrations around agreed delivery windows, with clear documentation and handoff.' : isBusiness ? 'Engineering support for MSPs and businesses. From migrations and identity to automation and integrations, Young Systems helps turn a defined scope into a working, documented solution.' : 'Projects and articles on Microsoft cloud, infrastructure, identity, and automation.'}</p>
+      {isLimitedAvailability && <p class="availability-note">{availabilityMessage}</p>}
       <div class="actions">
         <a class="button primary" href={isBusiness ? "/services#inquiry" : "/projects"}>{isBusiness ? "Discuss a project" : "Explore projects"} <span aria-hidden="true">→</span></a>
         <a class="button" href={isBusiness ? "/services" : "/blog"}>{isBusiness ? "Explore services" : "Read articles"}</a>
@@ -37,7 +38,7 @@ const featuredProjects = projects.filter((project) => project.featured).slice(0,
   {servicesConfig.acceptingProjects && <>
     <section class="partner-strip" aria-label="Working with Young Systems"><span>For MSPs & businesses</span><span>Defined scope</span><span>Documented delivery</span><span>Practical handoff</span></section>
     <section class="section" aria-labelledby="home-services-heading">
-      <div class="section-heading"><div><p class="eyebrow">Engineering services</p><h2 id="home-services-heading">The capacity to move your next project forward.</h2></div><p>Subcontract engineering for MSP delivery teams and direct project support for businesses. Start with the outcome you need; agree on the scope, responsibilities, and timing before implementation.</p></div>
+      <div class="section-heading"><div><p class="eyebrow">Engineering services</p><h2 id="home-services-heading">{isLimitedAvailability ? 'Focused project support, planned around your schedule.' : 'The capacity to move your next project forward.'}</h2></div><p>Subcontract engineering for MSP delivery teams and direct project support for businesses. Start with the outcome you need; agree on the scope, responsibilities, and timing before implementation.</p></div>
       <div class="services-grid">{services.map((service, index) => <article class="service-card"><span class="service-number">{String(index + 1).padStart(2, '0')}</span><h3>{service.title}</h3><p>{service.description}</p></article>)}</div>
       <div class="actions"><a class="button" href="/services">Service details & project inquiries →</a></div>
     </section>

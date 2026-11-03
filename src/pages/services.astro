@@ -1,16 +1,17 @@
 ---
-import { socialLinks } from '../data/site';
+import { socialLinks, isLimitedAvailability, availabilityMessage, siteDescription } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { servicesConfig, services } from '../data/services';
 const endpoint = servicesConfig.inquiryEndpoint.trim();
 if (servicesConfig.acceptingProjects && endpoint && !servicesConfig.turnstileSiteKey) throw new Error('Configure PUBLIC_TURNSTILE_SITE_KEY with the inquiry endpoint.');
 if (endpoint && !endpoint.startsWith('https://')) throw new Error('Project inquiry endpoint must use HTTPS.');
 ---
-<BaseLayout title={servicesConfig.acceptingProjects ? 'Project Services & Contact | Young Systems' : 'Contact | Young Systems'} description={servicesConfig.acceptingProjects ? 'Migrations, automation, cloud, Entra ID, systems administration, integrations, and MSP tooling for MSPs and businesses.' : 'Contact Samuel Young about articles, technical collaboration, and systems engineering.'}>
+<BaseLayout title={servicesConfig.acceptingProjects ? 'Project Services & Contact | Young Systems' : 'Contact | Young Systems'} description={isLimitedAvailability ? siteDescription : servicesConfig.acceptingProjects ? 'Migrations, automation, cloud, Entra ID, systems administration, integrations, and MSP tooling for MSPs and businesses.' : 'Contact Samuel Young about articles, technical collaboration, and systems engineering.'}>
   {servicesConfig.acceptingProjects ? <header class="page-header">
     <p class="eyebrow">Project services / MSPs & businesses</p>
     <h1>Engineering support.<br />From scope to handoff.</h1>
     <p>Young Systems helps MSPs expand their delivery capacity and businesses complete migrations, automation, cloud, identity, and integration projects. Work directly with an engineer, with a defined scope and a documented handoff.</p>
+    {isLimitedAvailability && <p class="availability-note">{availabilityMessage}</p>}
     <div class="actions"><a class="button primary" href="#inquiry">Discuss a project</a><a class="button" href="#partnership">MSP partnerships</a></div>
   </header> : <header class="page-header">
     <p class="eyebrow">Contact</p><h1>Let’s connect.</h1>
@@ -31,17 +32,17 @@ if (endpoint && !endpoint.startsWith('https://')) throw new Error('Project inqui
     <p class="partnership-note">Working directly with a business? The same attention to planning, communication, and handoff applies to direct engagements.</p>
   </section>
   <section class="service-process section" aria-labelledby="process-heading">
-    <div><p class="eyebrow">How we work</p><h2 id="process-heading">Agree on the work.<br />Deliver it. Hand it over.</h2><p>For MSPs, I can work within your project process and coordinate with your delivery team. For businesses, I can help translate the problem into a practical scope.</p><p>Project work is subject to availability. Timelines and cutover windows are agreed before work begins.</p></div>
+    <div><p class="eyebrow">How we work</p><h2 id="process-heading">Agree on the work.<br />Deliver it. Hand it over.</h2><p>For MSPs, I can work within your project process and coordinate with your delivery team. For businesses, I can help translate the problem into a practical scope.</p><p>{isLimitedAvailability ? 'Work is scheduled primarily on weekday evenings and weekends. Discovery calls, implementation, cutover windows, and follow-up support must fit an agreed schedule. Engagements requiring ongoing daytime coverage or immediate incident response are outside this availability.' : 'Project work is subject to availability. Timelines and cutover windows are agreed before work begins.'}</p></div>
     <ol><li><h3>Discovery</h3><p>Review the environment, desired outcome, dependencies, and timeline.</p></li><li><h3>Scope & delivery</h3><p>Agree on deliverables, access requirements, pricing, and validation before implementation.</p></li><li><h3>Handoff</h3><p>Document the changes, explain ongoing administration, and agree on any follow-up support.</p></li></ol>
   </section>
   </>}
   {servicesConfig.acceptingProjects && <section id="inquiry" class="inquiry-section section" aria-labelledby="inquiry-heading">
-    <div><p class="eyebrow">Project inquiry</p><h2 id="inquiry-heading">What do you need help with?</h2><p>Share the goal, current environment, and timing. Please leave out passwords, access tokens, and confidential client data.</p><p>{endpoint ? 'Use this form to send your inquiry directly.' : 'This form prepares an email in your email app. Review and send it there to complete your inquiry.'}</p><p>Prefer email? <a href={`mailto:${servicesConfig.email}`}>{servicesConfig.email}</a></p><p><a href={socialLinks.companyLinkedIn} target="_blank" rel="noopener noreferrer">Connect with Young Systems on LinkedIn ↗</a></p></div>
+    <div><p class="eyebrow">Project inquiry</p><h2 id="inquiry-heading">What do you need help with?</h2><p>Share the goal, current environment, and timing. Please leave out passwords, access tokens, and confidential client data.</p><p>{endpoint ? 'Use this form to send your inquiry directly.' : 'This form prepares an email in your email app. Review and send it there to complete your inquiry.'}</p>{isLimitedAvailability && <p>Please include your preferred evening or weekend windows and any daytime dependencies. Availability and delivery windows are confirmed before work begins.</p>}<p>Prefer email? <a href={`mailto:${servicesConfig.email}`}>{servicesConfig.email}</a></p><p><a href={socialLinks.companyLinkedIn} target="_blank" rel="noopener noreferrer">Connect with Young Systems on LinkedIn ↗</a></p></div>
     <form id="project-inquiry" data-endpoint={endpoint} data-email={servicesConfig.email} data-delivery={endpoint ? 'endpoint' : 'email'}>
       <div class="form-row"><label>Your name<input name="name" autocomplete="name" required maxlength="100" /></label><label>Work email<input name="email" type="email" autocomplete="email" required maxlength="254" /></label></div>
       <label>Organization<input name="organization" autocomplete="organization" required maxlength="150" /></label>
       <div class="form-row"><label>Organization type<select name="organizationType" required><option value="">Select one</option><option>MSP</option><option>Small or Midsize Business</option><option>Other</option></select></label><label>Project type<select name="projectType" required><option value="">Select one</option>{services.map(service => <option>{service.title}</option>)}<option>Other / help defining scope</option></select></label></div>
-      <label>Target timeline<input name="timeline" maxlength="150" placeholder="For example: cutover in November" /></label>
+      <label>Target timeline<input name="timeline" maxlength="150" placeholder={isLimitedAvailability ? "Target date and preferred evening/weekend windows" : "For example: cutover in November"} /></label>
       <label>Project details<textarea name="details" rows="6" required minlength="20" maxlength="5000" placeholder="What outcome are you looking for? Include approximate user or device counts if relevant."></textarea></label>
       <label class="inquiry-trap" aria-hidden="true">Leave this blank<input name="_gotcha" tabindex="-1" autocomplete="off" /></label>
       <label class="consent-label"><input type="checkbox" name="contactConsent" required value="yes" /><span>You may contact me about this inquiry using the information I provide.</span></label>

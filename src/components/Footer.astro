@@ -1,10 +1,10 @@
 ---
-import { isBusiness, socialLinks } from '../data/site';
+import { isBusiness, isLimitedAvailability, socialLinks } from '../data/site';
 ---
 <footer class="site-footer">
   <div>
     <a class="footer-brand" href="/">Young Systems</a>
-    <p>{isBusiness ? 'Independent engineering for MSPs and businesses.' : 'Systems engineering, infrastructure, and automation.'}</p>
+    <p>{isLimitedAvailability ? 'Engineering services • Evenings & weekends • By arrangement' : isBusiness ? 'Independent engineering for MSPs and businesses.' : 'Systems engineering, infrastructure, and automation.'}</p>
   </div>
   <div class="footer-links">
     <a href="https://github.com/cyber-syoung" target="_blank" rel="me noopener noreferrer">GitHub</a>
