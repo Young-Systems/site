@@ -1,7 +1,7 @@
 // Owner-controlled deployment switch. Change to 'portfolio' and rebuild to stop promoting services.
 // PUBLIC_SITE_MODE can override this for previews or deployment environments.
 export type SiteMode = 'business' | 'portfolio' | 'limited';
-const configuredMode = import.meta.env.PUBLIC_SITE_MODE || 'limited';
+const configuredMode = import.meta.env.PUBLIC_SITE_MODE || 'business';
 if (!['business', 'portfolio', 'limited'].includes(configuredMode)) {
   throw new Error('PUBLIC_SITE_MODE must be business, portfolio, or limited.');
 }
