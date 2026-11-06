@@ -1,0 +1,362 @@
+{
+  "versionDate": "2026-11-06",
+  "intro": "These Terms and Conditions describe the permitted use of young-systems.com and the terms for remote business technology services that expressly adopt them. A signed Master Services Agreement governs the services it covers as explained in Section 2. Please retain the version accepted with your order.",
+  "sections": [
+    {
+      "id": "section-1",
+      "title": "1 Application and acceptance",
+      "clauses": [
+        {
+          "number": "1.1",
+          "text": "Samuel Young, an individual doing business as Young Systems, an Ohio sole proprietor, is the service provider (\"Young Systems,\" \"we,\" \"us,\" or \"Provider\"). \"Visitor\" means a person accessing the website. \"Client\" means a business or other organization ordering services, or an individual acting for business purposes. \"You\" means the Visitor for website provisions and the Client for service provisions. Services are offered for business use, rather than personal, family, or household use. Mandatory rights remain effective regardless of this description."
+        },
+        {
+          "number": "1.2",
+          "text": "These Terms become a contract when an authorized person signs or expressly accepts them in writing, or uses an acceptance control clearly stating agreement to these Terms after a readable, retainable copy or conspicuous link is provided. A service order must identify the accepted version. The representative confirms authority to bind the identified Client; the representative does not personally guarantee an organization's payment merely by accepting for it."
+        },
+        {
+          "number": "1.3",
+          "text": "An \"Order\" is a mutually accepted statement of work, proposal, written work authorization, or booking identifying the service and price or pricing basis. A service agreement requires acceptance of both these Terms and an Order, and Provider's confirmation. Mere browsing, an inquiry, an unconfirmed appointment request, or payment of an invoice that did not previously incorporate these Terms does not by itself accept these Terms or authorize additional work. No minimum purchase or recurring subscription arises from these Terms."
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "title": "2 Relationship with other agreements",
+      "clauses": [
+        {
+          "number": "2.1",
+          "text": "An executed Master Services Agreement (MSA) governs the services within its scope, including their payment, warranty, intellectual property, liability, and termination terms. These Terms do not supplement or amend those service terms unless the MSA expressly incorporates them. Website provisions may apply to separately accepted website use without changing that MSA."
+        },
+        {
+          "number": "2.2",
+          "text": "For services without a controlling MSA, mandatory law controls first. A signed business associate agreement (BAA) or data addendum controls conflicting data-handling, security, and reporting duties. It changes the vendor risk allocation in Section 10, remedies in Section 14, liability limits in Section 16, or indemnity in Section 17 only if it expressly identifies and changes them, or mandatory law requires otherwise. General security language does not create an indemnity or remove a liability limit."
+        },
+        {
+          "number": "2.3",
+          "text": "An Order may set scope, quantities, pricing, payment milestones, schedule, and other project variables expressly left to it. Other changes to these Terms require a writing identifying the affected section and replacement language, accepted by both parties' authorized contract signers. Purchase orders, vendor terms, portal entries, and routine project approvals do not otherwise change these Terms. A booking may set the cancellation policy only as Section 8 permits."
+        }
+      ]
+    },
+    {
+      "id": "section-3",
+      "title": "3 Website use and information",
+      "clauses": [
+        {
+          "number": "3.1",
+          "text": "You may access the website and view, save, or print its public content for lawful reference and internal business evaluation. Website content and branding belong to Provider or their respective owners. Other reproduction, resale, or publication requires permission except as applicable law allows. Links to the website must not misrepresent affiliation or endorsement."
+        },
+        {
+          "number": "3.2",
+          "text": "Do not use the website to commit fraud, impersonate another person, distribute malicious software, interfere with its operation, or access systems or information without authorization. Security testing requires prior written authorization. Provider may restrict abusive or unlawful website access and may change or discontinue website features. This does not authorize termination of contracted services contrary to their agreement."
+        },
+        {
+          "number": "3.3",
+          "text": "Public articles, examples, service descriptions, and technology references are general information, may become outdated, and are not a project-specific assessment or commitment to perform work. Confirm current requirements before acting. Third-party links are provided for convenience and do not make Provider responsible for their content. An inquiry does not create a professional engagement. Do not submit passwords, payment-card details, protected health information, or other sensitive records through general contact or booking forms."
+        }
+      ]
+    },
+    {
+      "id": "section-4",
+      "title": "4 Services and change approval",
+      "clauses": [
+        {
+          "number": "4.1",
+          "text": "Services may include cloud migrations, Microsoft 365 and identity administration, infrastructure consulting, security configuration, automation, integrations, assessments, documentation, and project assistance. Only the work and quantities expressly included in an Order are purchased. Consulting does not include remediation, ongoing administration, monitoring, legal advice, or compliance certification unless expressly included."
+        },
+        {
+          "number": "4.2",
+          "text": "The Order identifies deliverables or service outcomes, assumptions, dependencies, Client approvers, and any hourly spending ceiling. Additional systems, users, requirements, or deliverables require an agreed change. Provider will identify material changes and their expected cost and schedule effects before proceeding. Work at an hourly ceiling or outside approved scope may be paused pending written authorization."
+        },
+        {
+          "number": "4.3",
+          "text": "Production changes require prior written approval of their scope and impact by the designated Client approver. Before potentially disruptive work, the parties agree on the maintenance window, testing, recovery prerequisites, and rollback approach. Project approvals may be given by email or an agreed written system; they do not amend contractual risk allocation under Section 2.3."
+        }
+      ]
+    },
+    {
+      "id": "section-5",
+      "title": "5 Availability and scheduling",
+      "clauses": [
+        {
+          "number": "5.1",
+          "text": "Provider uses commercially reasonable efforts to meet planning targets within mutually confirmed availability. Work is generally performed outside ordinary business hours in U.S. Eastern Time; calls and work requiring live participation must be scheduled in advance. Start dates depend on confirmed capacity, access, licenses, required data agreements, and approvals. Estimated dates and weekly hours are planning assumptions rather than dedicated staffing or guaranteed deadlines."
+        },
+        {
+          "number": "5.2",
+          "text": "Provider will promptly flag material schedule risks and propose revised targets. Continuous monitoring, emergency response, on-call coverage, response-time service levels, fixed weekly capacity, and binding delivery dates require express written acceptance in an Order. Passive waiting is not billable. These scheduling provisions do not extend legal deadlines or the incident-notice obligations in Section 12."
+        }
+      ]
+    },
+    {
+      "id": "section-6",
+      "title": "6 Pricing and billing methods",
+      "clauses": [
+        {
+          "number": "6.1",
+          "text": "For authorized hourly work, the rate is $100 per hour unless the Order states another rate. Actual time is aggregated by day and Order, then rounded once to the next 15 minutes. Authorized meetings, project-specific research, engineering, testing, and documentation are billable. General training, sales activity, passive vendor waiting, and correction labor required by Section 14 are not billable. Minimum charges, rush fees, and expenses require advance written agreement. An hourly estimate or ceiling is not a fixed price or minimum charge."
+        },
+        {
+          "number": "6.2",
+          "text": "A fixed fee purchases the defined scope or milestones rather than a bank of hours. Completing that scope in fewer hours does not reduce the fee or create an unused-hours credit. Extra effort within unchanged scope does not increase the fee. Planning hours are informational, and included work is not also billed hourly. A price change requires a written scope change with the revised fee and schedule effect agreed before the additional work. Ordinary estimating error and required warranty correction are not scope changes."
+        },
+        {
+          "number": "6.3",
+          "text": "Fixed fees should be allocated to identifiable milestones in the Order; otherwise the whole Order is one milestone. An allocation is earned on completion of the included work in material conformity with the Order, subject to Section 14. Invoice on acceptance unless the Order expressly states a different schedule. An advance payment credits earned fees and is not automatically nonrefundable. An agreed scope reduction must identify any credit for unperformed work. Early termination is reconciled under Section 18."
+        }
+      ]
+    },
+    {
+      "id": "section-7",
+      "title": "7 Payment and taxes",
+      "clauses": [
+        {
+          "number": "7.1",
+          "text": "Hourly work is invoiced weekly and at completion; fixed fees follow Section 6.3. Unless the Order sets another due date, payment is due 15 calendar days after the invoice is sent to Client's billing email. Notify Provider of a good-faith billing dispute within that period and pay undisputed amounts when due. The parties will investigate promptly; this notice period does not waive latent billing errors. No contractual late fee, compounding interest, or collection percentage applies. Statutory interest and court-awarded costs remain available where permitted."
+        },
+        {
+          "number": "7.2",
+          "text": "Client pays applicable sales, use, and other transaction taxes, excluding Provider's income taxes. Provider will collect taxes when required; applicable sourcing rules and valid exemptions control. Third-party licenses, consumption, and approved expenses are additional unless expressly included. Provider will not incur noncancelable commitments on Client's behalf without prior written approval. Future service rate changes require agreement and do not reprice an accepted Order."
+        },
+        {
+          "number": "7.3",
+          "text": "A payment processor may apply its own terms to payment functionality; those terms do not expand the purchased services or Provider's contractual obligations. Any saved payment method, recurring charge, or automatic payment requires the applicable separate authorization. These Terms do not waive statutory or payment-network dispute rights. Earned fees for conforming services remain payable if Client declines a recommendation or a vendor fails, subject to an applicable remedy under this agreement or mandatory law."
+        }
+      ]
+    },
+    {
+      "id": "section-8",
+      "title": "8 Consultations and cancellations",
+      "clauses": [
+        {
+          "number": "8.1",
+          "text": "A paid discovery or consulting session purchases the described professional time or deliverable. It does not guarantee a particular recommendation, project outcome, or credit toward later services. A later credit applies only if agreed in writing. Complimentary calls are free only when expressly identified as such. Separately authorized preparation may be billable, but included or previously paid work is not billed twice."
+        },
+        {
+          "number": "8.2",
+          "text": "Notify Provider promptly if you need to cancel or reschedule. A reservation, late-cancellation, or no-show fee applies only if the amount or calculation and cancellation window were conspicuously disclosed and expressly accepted before booking or payment. Without that separate agreement, unused prepaid consultation fees are refunded or applied to a mutually agreed rescheduling, less any separately authorized earned charges. If Provider cancels without completing the purchased service, Client may choose a refund of its unearned prepaid amount or rescheduling. Refunds and advance reconciliation are completed within 30 calendar days, or sooner if law requires."
+        }
+      ]
+    },
+    {
+      "id": "section-9",
+      "title": "9 Client responsibilities",
+      "clauses": [
+        {
+          "number": "9.1",
+          "text": "Client supplies accurate information, timely decisions, lawful access, sufficient license rights, and a knowledgeable authorized approver. Client confirms authority to request work on the identified systems and data, and discloses regulated data, retention obligations, legal holds, critical workflows, vendor restrictions, and known hazards. Provider may reasonably rely on supplied information but will raise material inaccuracies actually identified during the work."
+        },
+        {
+          "number": "9.2",
+          "text": "Unless expressly assigned to Provider, Client maintains backups, tests their recoverability, and maintains disaster-recovery arrangements. Provider may rely on Client's recovery confirmation without independently testing backups unless ordered. Client supplies named access using least privilege and multifactor authentication where supported, uses agreed secure credential-transfer methods, coordinates other changes, and revokes temporary access after handoff. Provider stays within authorized access and may pause work when authority, safe recovery, or essential prerequisites are missing."
+        },
+        {
+          "number": "9.3",
+          "text": "An MSP or prime contractor obtains its end customer's authorization and remains responsible for payment regardless of collection from that customer. Upstream contracts, insurance obligations, indemnities, and service levels do not pass to Provider without express acceptance under Section 2.3. Client remains responsible to the extent its inaccurate instructions, declined recommendations, unauthorized changes, or failure to maintain disclosed prerequisites cause a loss; this does not excuse Provider's own nonwaivable duties or the misconduct described in Section 16.3."
+        }
+      ]
+    },
+    {
+      "id": "section-10",
+      "title": "10 Independent products and delegated services",
+      "clauses": [
+        {
+          "number": "10.1",
+          "text": "\"Independent Products\" means third-party software, open-source components, cloud and AI platforms, hosting, hardware, telecommunications, and underlying vendor services, including products Provider recommends, selects, licenses, uses, configures, or integrates. Client makes the final commercial adoption decision and ordinarily contracts with and pays the vendor or reseller directly. Provider does not purchase, resell, renew, finance, or guarantee these products unless an Order expressly provides otherwise. Vendor availability, defects, security, output, licensing, data practices, features, and later changes are vendor risks."
+        },
+        {
+          "number": "10.2",
+          "text": "TO THE MAXIMUM EXTENT PERMITTED BY LAW AND SUBJECT TO SECTION 16.3, CLIENT ASSUMES THE RISK OF INDEPENDENT-PRODUCT FAILURE OR UNSUITABILITY AND RELEASES PROVIDER FROM CLAIMS BASED ON THAT FAILURE OR UNSUITABILITY, INCLUDING ORDINARY NEGLIGENCE IN RECOMMENDING, EVALUATING, SELECTING, APPROVING, OR FAILING TO IDENTIFY A VENDOR OR PRODUCT LIMITATION. THIS APPLIES EVEN IF PROVIDER RECOMMENDED, SELECTED, CONFIGURED, OR INTEGRATED THE PRODUCT. THE SECTION 14 STANDARD OF CARE DOES NOT RECREATE A RELEASED VENDOR-SELECTION OR PRODUCT-PERFORMANCE DUTY. LIABILITY THAT SURVIVES THIS EXCLUSION REMAINS SUBJECT TO SECTION 16 WHERE LAWFUL."
+        },
+        {
+          "number": "10.3",
+          "text": "Provider's separate failure to perform its own expressly ordered configuration, integration, testing, documentation, or data-handling services is not converted into a vendor failure merely because third-party technology is involved. Conversely, a vendor defect, outage, or change is not Provider nonconformity merely because Provider recommended or worked with the product. Provider will disclose material limitations actually identified during the ordered work, but no independent vendor audit, continuing due diligence, licensing monitoring, or guarantee of future terms is included unless ordered. A scoped evaluation does not override Section 10.2 without the express amendment required by Section 2.3. Additional vendor investigation or reconfiguration requires approval unless included or required as a Section 14 correction."
+        },
+        {
+          "number": "10.4",
+          "text": "Delegated professional labor is distinct from Independent Products. Before delegating services involving Client systems or confidential data, Provider obtains Client's written consent, imposes appropriate confidentiality and security duties, and remains responsible for the delegated performance under the same remedies and limits that apply to Provider. Required regulated-subcontractor duties also apply to vendor functions that meet that legal definition. A product disclaimer does not waive those duties; the applicable obligation follows the actual function."
+        }
+      ]
+    },
+    {
+      "id": "section-11",
+      "title": "11 Confidentiality",
+      "clauses": [
+        {
+          "number": "11.1",
+          "text": "Each party protects nonpublic information marked confidential or reasonably understood to be confidential, including Client data, credentials, security findings, and business plans. It uses that information only for the engagement, protects it with reasonable care, and shares it only as needed with authorized recipients subject to appropriate confidentiality duties. Exclusions are information demonstrably public without breach, lawfully known without restriction, independently developed, or lawfully received from another source. Legally required disclosure is permitted with notice where lawful and reasonable cooperation to limit disclosure."
+        },
+        {
+          "number": "11.2",
+          "text": "Confidentiality continues for five years after termination; trade secrets remain protected while legally qualifying, and personal or regulated data remains protected as law or a signed data agreement requires. Neither party may publicize the other's name, logo, customer identity, or confidential work without written permission. Authorized use of a vendor service does not guarantee that vendor's compliance with its own terms; Provider's own duties remain governed by Sections 10 and 12."
+        }
+      ]
+    },
+    {
+      "id": "section-12",
+      "title": "12 Data security and regulated information",
+      "clauses": [
+        {
+          "number": "12.1",
+          "text": "Client retains its data. Provider processes it only for authorized services and lawful documented instructions, minimizes copies, and uses reasonable safeguards appropriate to Provider's role and control. These include restricted access, supported multifactor authentication, encryption in transit, and encryption on Provider-controlled devices holding Client data. Client confidential information is not submitted to public or consumer AI tools or used to train general-purpose models without prior written authorization and agreed safeguards. Approved enterprise services remain subject to their own terms; Provider does not warrant a breach-proof environment."
+        },
+        {
+          "number": "12.2",
+          "text": "Client identifies protected health information (PHI) and other regulated data before access. Before services create a HIPAA business-associate or other regulated processing role, the parties execute the required BAA or data agreement and confirm permitted access. These Terms are not a BAA or certification of compliance. General inquiries should omit regulated records. Provider may pause affected work until prerequisites are satisfied. Actual functions determine statutory duties; a Client instruction, vendor approval, or contractual label cannot waive them."
+        },
+        {
+          "number": "12.3",
+          "text": "For Services, each party will notify the other without undue delay, and within 48 hours after discovery, of actual or reasonably suspected material unauthorized access, disclosure, loss, or compromise of Client data in Provider's possession or control or processed for the Services, including a material vendor incident of which it learns. Discovery includes what applicable law requires reasonable diligence to reveal. Any shorter controlling legal or BAA deadline applies. Notice may be preliminary with timely material updates. Routine unsuccessful attacks may be reported in aggregate only where law and the BAA permit. No continuous vendor monitoring or undertaking to discover every incident is created."
+        },
+        {
+          "number": "12.4",
+          "text": "The parties reasonably cooperate in containment, investigation, evidence preservation, and required notices. Client directs notices to its affected persons unless law requires Provider to notify directly. Mandatory notices and safeguards must not await payment approval. Additional incident-response services require written scope and budget approval. This creates no unlimited no-charge remediation or duty to fund vendor investigations or customer notifications. Contractual correction follows Section 14; damages and response-cost reimbursement, if owed, remain subject to Section 16 where lawful. Paying a cap does not extinguish required safeguards or reporting. These Terms do not replace a privacy notice required for website or business data practices."
+        }
+      ]
+    },
+    {
+      "id": "section-13",
+      "title": "13 Deliverables and intellectual property",
+      "clauses": [
+        {
+          "number": "13.1",
+          "text": "Client keeps its data and preexisting materials. Once paid in full, Provider assigns the copyright it owns in Client-specific reports and documentation, excluding Provider Materials and third-party content. \"Provider Materials\" are preexisting or independently developed tools, code, libraries, templates, methods, and reusable components or improvements that do not disclose Client confidential information. Custom software ownership or exclusive rights require express terms in the Order."
+        },
+        {
+          "number": "13.2",
+          "text": "For paid deliverables, Client receives a perpetual, worldwide, nonexclusive, royalty-free license to use and modify incorporated Provider Materials for its internal business, including use by its support providers. For an identified MSP engagement, Client may supply them for internal use by the end customer named in the Order, with the same restrictions. Standalone resale or distribution requires permission. Third-party and open-source materials retain their own licenses, and Provider will identify material dependencies. No rights Provider does not own are granted."
+        },
+        {
+          "number": "13.3",
+          "text": "End-customer use rights do not create additional service promises, indemnities, or contractual enforcement rights against Provider. Nonparty rights imposed by law remain unaffected. Payment conditions apply to Provider deliverables, rather than Client ownership of or access to its own data, credentials, or tenant. Provider will not use Client-owned data or administrative access as payment leverage."
+        }
+      ]
+    },
+    {
+      "id": "section-14",
+      "title": "14 Deliverable review and limited service warranty",
+      "clauses": [
+        {
+          "number": "14.1",
+          "text": "Client has 10 business days after delivery to reject a deliverable in writing for a specific material failure to meet the Order. Acceptance occurs on written approval or expiration of that period without specific rejection. A corrected portion receives a new 10-business-day review without restarting unrelated warranty periods. Acceptance is not compliance certification or proof that an unsuccessful control works. Advice without a defined deliverable is complete when provided."
+        },
+        {
+          "number": "14.2",
+          "text": "Subject to Section 10, Provider warrants reasonable professional care and skill in Provider-performed services and material conformity with the Order. Client must identify a material nonconformity in writing within 30 calendar days after the affected service or delivery, including a latent defect discovered within that period. Provider may correct or reperform the affected work without additional labor charges, or refund paid fees and waive unpaid fees for its unusable nonconforming portion. If correction is not reasonably completed within 30 calendar days after valid notice, unless extended by agreement, that refund and waiver is the remedy."
+        },
+        {
+          "number": "14.3",
+          "text": "To the extent permitted by law and subject to Section 16.3, those are the exclusive contractual remedies for ordinary service-performance failures, including ordinary-negligence claims based on the same performance. They do not recreate the vendor duties released in Section 10, eliminate independent confidentiality or data-handling duties, or shorten the legal filing period for every claim. Contractual monetary recovery remains subject to Section 16. Client misuse, uncoordinated changes, undisclosed dependencies, or vendor defects and later changes are not Provider nonconformity to that extent. Acceptance or warranty expiration does not end continuing confidentiality or required data duties."
+        }
+      ]
+    },
+    {
+      "id": "section-15",
+      "title": "15 Disclaimers",
+      "clauses": [
+        {
+          "number": "15.1",
+          "text": "EXCEPT FOR THE EXPRESS LIMITED SERVICE WARRANTY IN SECTION 14 AND DUTIES THAT CANNOT LAWFULLY BE DISCLAIMED, THE WEBSITE, PUBLIC INFORMATION, AND OTHER MATERIALS ARE PROVIDED AS IS AND AS AVAILABLE. TO THE EXTENT PERMITTED BY LAW, PROVIDER DISCLAIMS OTHER EXPRESS OR IMPLIED WARRANTIES, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. THESE DISCLAIMERS DO NOT OVERRIDE EXPRESS CONFIDENTIALITY, DATA-HANDLING, OR SERVICE DUTIES."
+        },
+        {
+          "number": "15.2",
+          "text": "No promise guarantees uninterrupted availability, prevention of every security incident, detection of all PHI, error-free AI output, vendor suitability or performance, or a particular audit, regulatory, insurance, or legal outcome. Technical compliance work supports Client's program; Client remains responsible for its business, clinical, and legal decisions and duties outside the Order. Provider does not provide legal, tax, or medical advice."
+        }
+      ]
+    },
+    {
+      "id": "section-16",
+      "title": "16 Liability limits",
+      "clauses": [
+        {
+          "number": "16.1",
+          "text": "TO THE MAXIMUM EXTENT PERMITTED BY LAW AND SUBJECT TO SECTION 16.3, NEITHER PARTY IS LIABLE TO THE OTHER FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR LOST PROFITS, REVENUE, BUSINESS OPPORTUNITY, OR GOODWILL, EVEN IF THOSE ECONOMIC LOSSES ARE CHARACTERIZED AS DIRECT. THIS DOES NOT ITSELF EXCLUDE REASONABLE DIRECT DATA-RESTORATION OR INCIDENT-RESPONSE COSTS OR CREATE A DUTY TO PAY THEM; A BASIS FOR LIABILITY MUST EXIST, SURVIVE SECTION 10, AND REMAIN WITHIN SECTION 16.2 WHERE LAWFUL."
+        },
+        {
+          "number": "16.2",
+          "text": "EACH PARTY'S TOTAL AGGREGATE MONETARY LIABILITY ARISING FROM OR RELATING TO AN ORDER IS LIMITED TO THE GREATER OF $1,000 OR SERVICE FEES PAID OR DUE FOR WORK ACTUALLY PERFORMED UNDER THAT ORDER IN THE 12 MONTHS BEFORE THE FIRST EVENT GIVING RISE TO LIABILITY. FOR CLAIMS WITHOUT AN ORDER, USE THE GREATER OF $1,000 OR TOTAL SERVICE FEES UNDER THESE TERMS FOR THAT PERIOD. THIS IS ONE AGGREGATE CAP, NOT A NEW ALLOWANCE PER CLAIM OR LEGAL THEORY. RELATED CLAIMS DO NOT RESET IT; IF ONE EVENT AFFECTS MULTIPLE ORDERS, COMBINE THEIR RELEVANT FEES ONCE. IT APPLIES TO CONTRACT, TORT INCLUDING ORDINARY NEGLIGENCE, CONFIDENTIALITY, SECURITY, DATA PROTECTION, WARRANTY REFUNDS OR CREDITS, AND ANY EXPRESS INDEMNITY, INCLUDING DEFENSE COSTS. LICENSE CHARGES, TAXES, REIMBURSED EXPENSES, AND UNEARNED DEPOSITS ARE NOT SERVICE FEES."
+        },
+        {
+          "number": "16.3",
+          "text": "SECTIONS 10.2, 14.3, 15, AND 16 DO NOT RELEASE OR LIMIT LIABILITY TO THE EXTENT CAUSED BY FRAUD, GROSS NEGLIGENCE, RECKLESS, WILLFUL, OR WANTON MISCONDUCT, OR LIABILITY THAT APPLICABLE LAW PROHIBITS LIMITING. AN UNPROVEN ALLEGATION ALONE DOES NOT REMOVE THE LIMITS. CLIENT'S DUTY TO PAY AUTHORIZED FEES AND EXPENSES AND PROVIDER'S DUTY TO RETURN UNEARNED CLIENT FUNDS ARE NOT CAPPED. THESE TERMS ALLOCATE REMEDIES BETWEEN THE CONTRACTING PARTIES; THEY DO NOT BIND REGULATORS OR NONPARTIES OR EXCUSE NONWAIVABLE DUTIES."
+        },
+        {
+          "number": "16.4",
+          "text": "Warranty refunds or credits and recovery for the same loss count once toward the cap. Correction efforts under Section 14 are the specified limited remedy rather than an unlimited support commitment. The cap does not itself require refunds of conforming work or excuse data return or required reporting. The parties may agree to different limits and pricing before acceptance. Exclusions, limited remedies, and caps are independent and severable to the extent law permits, including mandatory rules governing limited remedies. They survive termination."
+        }
+      ]
+    },
+    {
+      "id": "section-17",
+      "title": "17 Third party claims",
+      "clauses": [
+        {
+          "number": "17.1",
+          "text": "Provider undertakes no contractual duty to defend, indemnify, or hold Client or its end customers harmless unless an express amendment under Section 2.3 states that duty, its scope, and its financial limit. Delivering services or licensing materials does not create that duty. Liability otherwise imposed by law remains subject to lawful exclusions and limits."
+        },
+        {
+          "number": "17.2",
+          "text": "Client will defend Provider against third-party claims, including end-customer claims, to the extent arising from Client's lack of authority to permit the work, unlawful Client-supplied materials or instructions, or guarantees made in Provider's name without authorization, and pay damages finally awarded or included in an approved settlement. This excludes the portion caused by Provider's own negligence, breach, or misconduct and remains subject to Section 16, including its cap."
+        },
+        {
+          "number": "17.3",
+          "text": "Provider must give prompt notice, reasonable cooperation, and meaningful control of the defense with reasonably acceptable counsel. Late notice excuses the duty only to the extent of material prejudice. No settlement binds the obligated party without its approval or admits the protected party's fault or imposes unpaid liability or nonmonetary duties without its consent, not unreasonably withheld. Defense costs count toward the cap; no broader indemnity is implied."
+        }
+      ]
+    },
+    {
+      "id": "section-18",
+      "title": "18 Suspension termination and handoff",
+      "clauses": [
+        {
+          "number": "18.1",
+          "text": "Either party may terminate an Order or the service relationship for convenience on 30 calendar days' written notice unless expressly amended under Section 2.3. Individual consultation cancellations instead follow Section 8. Client may direct a pause during the project notice period. Either party may terminate for a material breach not cured within 15 calendar days after written notice, except that ordinary warranty nonconformity follows Section 14. A controlling BAA remedy or action required by law is not delayed. Provider may suspend affected services on five business days' notice of undisputed overdue payment. A party may immediately pause affected activity for imminent material security risk, unlawful conduct, or unauthorized access, with prompt notice and reasonable mitigation."
+        },
+        {
+          "number": "18.2",
+          "text": "Client owes earned authorized hourly charges, completed conforming fixed-fee milestones at their agreed prices, and the reasonable documented proportion of usable conforming work completed on partial milestones, capped at each milestone's price. Approved noncancelable commitments remain payable. No automatic charge applies to unperformed work, the unfinished contract balance, or unused notice time. Credit prior payments, reconcile advances, and refund unearned amounts within 30 calendar days, or sooner if law requires. Section 14 remedies remain available for covered nonconforming work."
+        },
+        {
+          "number": "18.3",
+          "text": "Provider delivers paid completed work and reasonably usable paid work in progress. Unpaid Provider deliverable rights remain subject to Section 13; Client-owned data, credentials, and legally required disclosures are not withheld. Additional transition services require approval and are subject to availability. Within 30 calendar days, return or delete Provider-held Client-data copies as directed, subject to required records, legal holds, law, and controlling BAA deadlines. Retained copies remain protected and limited to permitted purposes. Provider does not promise to delete Client- or vendor-controlled originals or backups; required processing and subcontractor duties remain effective. Client production data is not purged without authority."
+        }
+      ]
+    },
+    {
+      "id": "section-19",
+      "title": "19 Governing law and disputes",
+      "clauses": [
+        {
+          "number": "19.1",
+          "text": "Ohio law governs without conflict-of-laws rules, subject to federal law and nonwaivable protections. Except where mandatory law requires otherwise, the parties consent to exclusive jurisdiction and venue in Ohio state courts in Clinton County or, when federal subject-matter jurisdiction exists, the U.S. District Court for the Southern District of Ohio. Emergency protective relief may be sought wherever necessary to be effective."
+        },
+        {
+          "number": "19.2",
+          "text": "Authorized representatives will confer in good faith for up to 30 calendar days after dispute notice. This does not prevent timely filing to preserve claims, required reporting, or urgent relief. Mediation requires agreement; arbitration is not mandatory. Each party bears its own attorney fees unless applicable law or court rule permits an award, or Section 17 covers qualified third-party defense costs. These Terms impose no shortened general lawsuit-filing deadline."
+        }
+      ]
+    },
+    {
+      "id": "section-20",
+      "title": "20 Notices and general provisions",
+      "clauses": [
+        {
+          "number": "20.1",
+          "text": "Contact Young Systems at info@young-systems.com or through young-systems.com. An Order identifies Client's notice and billing emails and the parties' security contacts and urgent contact methods. Formal breach, termination, dispute, and assignment notices go to the designated notice emails, effective on acknowledged receipt or the next business day after transmission without delivery failure; use a confirmed alternative after failure. Send security notices promptly to designated security contacts and use reasonable alternate contact if delivery fails. The next-business-day rule does not postpone their sending deadline or controlling legal or BAA receipt requirements. Business days exclude weekends and U.S. federal holidays."
+        },
+        {
+          "number": "20.2",
+          "text": "The parties consent to electronic records and signatures for the accepted transaction and may retain copies. Provider may publish updated Terms for future acceptance. Publication, continued performance of an existing Order, or payment alone does not amend an accepted agreement or accrued rights. A later Order adopts an updated version only with the required acceptance. Contact changes may be made by written notice."
+        },
+        {
+          "number": "20.3",
+          "text": "Provider is an independent contractor; these Terms create no employment, agency, exclusivity, or partnership. Neither party may bind the other. Assignment requires the other's written consent, not unreasonably withheld. Forming an LLC does not automatically substitute that entity for Samuel Young or release earlier personal obligations; an express agreement is required. No insurance policy or coverage limit is represented by these Terms."
+        },
+        {
+          "number": "20.4",
+          "text": "Delay beyond reasonable control is excused only with prompt notice, reasonable mitigation, and resumption when practicable. It does not excuse earned payments, required safeguards, or expressly required or nonwaivable precautions, or change Section 10. Either party may end affected work after a 30-day material interruption, with payment and reconciliation under Section 18. These Terms and accepted Orders and addenda form the entire agreement for services governed by them, subject to Section 2. Waivers apply only to the stated instance. Invalid provisions are limited or severed only as law permits. Accrued payment, confidentiality, required data duties, intellectual property rights, risk allocation, disputes, and necessary handoff duties survive as needed, without extending the limited warranty or creating managed services."
+        }
+      ]
+    }
+  ]
+}
